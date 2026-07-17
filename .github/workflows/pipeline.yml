@@ -61,7 +61,7 @@ jobs:
 
       - name: Validate feed
         if: ${{ (inputs.action == 'feed' || inputs.action == 'both') && inputs.dry_run != true }}
-        run: xmllint --noout docs/feed.xml
+        run: python -c "import xml.etree.ElementTree as ET; ET.parse('docs/feed.xml'); print('feed.xml — валидный XML')"
 
       - name: Commit feed if changed
         if: ${{ (inputs.action == 'feed' || inputs.action == 'both') && inputs.dry_run != true }}
