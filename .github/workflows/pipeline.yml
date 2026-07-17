@@ -1,0 +1,77 @@
+name: pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Что запустить"
+        type: choice
+        options: [sync, feed, both]
+        default: both
+      dry_run:
+        description: "Пробный прогон (ничего не писать в «Усі товари»)"
+        type: boolean
+        default: false
+
+# два запуска не должны работать одновременно
+concurrency:
+  group: chernivtsi-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      SHEET_ID: ${{ secrets.SHEET_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Sync (Google Sheets)
+        if: ${{ inputs.action == 'sync' || inputs.action == 'both' }}
+        working-directory: src
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python sync.py --dry-run
+          else
+            python sync.py
+          fi
+
+      - name: Upload sync report
+        if: ${{ (inputs.action == 'sync' || inputs.action == 'both') && hashFiles('src/sync_report.json') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-report
+          path: src/sync_report.json
+
+      - name: Build feed
+        if: ${{ (inputs.action == 'feed' || inputs.action == 'both') && inputs.dry_run != true }}
+        working-directory: src
+        run: python feed.py
+
+      - name: Validate feed
+        if: ${{ (inputs.action == 'feed' || inputs.action == 'both') && inputs.dry_run != true }}
+        run: xmllint --noout docs/feed.xml
+
+      - name: Commit feed if changed
+        if: ${{ (inputs.action == 'feed' || inputs.action == 'both') && inputs.dry_run != true }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- docs/feed.xml; then
+            git add docs/feed.xml
+            git commit -m "chore: update feed.xml [skip ci]"
+            git push
+          else
+            echo "feed.xml без изменений — коммит не нужен"
+          fi

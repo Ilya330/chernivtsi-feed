@@ -1,0 +1,114 @@
+# chernivtsi-feed
+
+Конвейер **Google Таблиця «Товари Чернівці» → парсинг → XML-фід Prom.ua**.
+
+Вся логика — Python в этом репозитории, выполняется в **GitHub Actions**
+(`workflow_dispatch`). Кнопки в таблице (Apps Script) дергают Action. Готовый фид
+хостится на **GitHub Pages**:
+
+**Постоянная ссылка на фид:** https://Ilya330.github.io/chernivtsi-feed/feed.xml
+
+Ссылка не меняется; содержимое обновляется только по кнопке «Обновить XML-фід».
+
+---
+
+## Как это работает
+
+1. **Кнопка «Обробити прайс (синхронізація)»** → Action запускает `src/sync.py`:
+   - читает лист **«Входні товари»** (прайс поставщика), парсит товары по правилам
+     (`parser_t1.py` + `parser_t2.py`, ID/родители групп — из `src/group_config.json`);
+   - пишет в лист **«Усі товари»** (формат импорта Prom.ua):
+     - новые товары дописываются в конец с включённым чекбоксом (колонка A = TRUE);
+     - у совпавших по ID обновляются **только** цена долл./грн., наличие и количество
+       (F, G, H, I) — остальные колонки пользователь правит вручную, они не трогаются;
+     - исчезнувшие из прайса помечаются «Немає в наявності», количество 0.
+   - итоги пишутся в лист **«Лог»**.
+2. **Кнопка «Оновити XML-фід»** → Action запускает `src/feed.py`:
+   - берёт из «Усі товари» строки с чекбоксом **A = TRUE** (включая «Немає в наявності»
+     — они идут с `available="false"`);
+   - генерирует YML-фид и коммитит `docs/feed.xml`; Pages отдаёт его по ссылке выше.
+
+### Идемпотентность
+Повторный запуск синхронизации на неизменном прайсе не меняет ни одной ячейки данных
+(только добавляется строка в «Лог»). Ручные правки существующих строк переживают синхронизацию.
+
+---
+
+## Структура
+
+```
+src/
+  parser_t1.py      # правила 1-й партии (Snake, WaterProof, Авто, книжки, NoLo/NeLo) — не менять
+  parser_t2.py      # правила 2-й партии (~150 подгрупп) — не менять
+  group_config.json # постоянные ID групп сайта (150001–150186), next_free_id=150187
+  sheet_io.py       # чтение/запись Google Sheets
+  sync.py           # синхронизация «Входні товари» -> «Усі товари»
+  feed.py           # генерация YML -> docs/feed.xml
+docs/
+  feed.xml          # публикуемый фид (GitHub Pages из /docs)
+  index.html        # заглушка со ссылкой
+apps_script/Code.gs # меню таблицы (вставляется вручную в редактор скриптов)
+.github/workflows/pipeline.yml
+```
+
+Раскладка листов и колонок — в комментариях `src/sheet_io.py`. Кратко:
+**«Входні товари»** — данные в колонках **A–F** (A=Код, B=Наименование, C=Полное,
+D=Остаток, E=единица, F=опт USD); заголовки групп — строка, где A заполнено, а B пусто;
+курс — из ячейки «Валюта: USD, курс 45,2» (fallback 45.2).
+**«Усі товари»** — 24 колонки A–X (A=чекбокс … M–X = 4 слота характеристик:
+Бренд / Модель / Цвет / Материал).
+
+---
+
+## Настройка (однократно)
+
+### 1. Секреты репозитория (Settings → Secrets and variables → Actions)
+- `GOOGLE_SERVICE_ACCOUNT_JSON` — содержимое JSON-ключа сервисного аккаунта
+  `sheets-bot@gallary-434015.iam.gserviceaccount.com` (ключ из проекта parsing_maxy).
+  **Аккаунт уже добавлен редактором в таблицу.** Ключ в репозиторий не коммитить.
+- `SHEET_ID` — `1mdUY_I0f-qHrkb-vcJbh7BZmjEKLXJCZcqdZZoc0wN0`.
+
+### 2. GitHub Pages
+Settings → Pages → Source: **Deploy from a branch**, branch `main`, папка **/docs**.
+После первого коммита `docs/feed.xml` фид доступен по постоянной ссылке.
+
+### 3. Apps Script (в самой таблице)
+1. В таблице: Розширення → Apps Script → вставить `apps_script/Code.gs`.
+2. Налаштування проєкту → Властивості скрипта → додати властивість
+   **`GITHUB_TOKEN`** = fine-grained Personal Access Token.
+3. Обновить страницу таблицы — появится меню **⚙ Магазин**.
+
+#### Как создать GITHUB_TOKEN
+1. GitHub → Settings → Developer settings → **Fine-grained tokens** → Generate new token.
+2. **Resource owner:** Ilya330. **Repository access:** Only select repositories → `chernivtsi-feed`.
+3. **Permissions → Repository → Actions:** `Read and write`. (Больше ничего не нужно.)
+4. Скопировать токен и вставить его значением свойства `GITHUB_TOKEN` в Apps Script
+   (Властивості скрипта). В код токен не вписывать.
+
+---
+
+## Ручной запуск (без кнопок)
+
+Через вкладку **Actions → pipeline → Run workflow**: выбрать `action`
+(`sync` / `feed` / `both`) и при необходимости `dry_run = true` (пробный прогон —
+ничего не пишет в «Усі товари», отчёт кладётся в артефакт `sync-report`).
+
+Локально:
+```bash
+pip install -r requirements.txt
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service_account.json
+export SHEET_ID=1mdUY_I0f-qHrkb-vcJbh7BZmjEKLXJCZcqdZZoc0wN0
+cd src
+python sync.py --dry-run     # пробный прогон
+python sync.py               # боевая синхронизация
+python feed.py               # генерация docs/feed.xml
+```
+
+---
+
+## Важные «не делать»
+- Не перегенерировать ID существующих групп — только из `group_config.json` / листа.
+- Не перезаписывать при синхронизации никакие колонки существующих строк, кроме F, G, H, I.
+- Не хранить ключ сервисного аккаунта и GitHub-токен в коде/репозитории.
+- Не менять проверенные правила парсинга (`parser_t1.py`, `parser_t2.py`) без прогона
+  контрольных строк.

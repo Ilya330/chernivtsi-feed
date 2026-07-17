@@ -1,0 +1,11 @@
+# сервисные ключи — НИКОГДА не коммитить
+service_account.json
+*service-account*.json
+*credentials*.json
+.env
+
+# артефакты прогонов
+src/sync_report.json
+sync_report.json
+__pycache__/
+*.pyc

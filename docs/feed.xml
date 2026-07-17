@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-07-17 22:40">
+  <shop>
+    <name>Товари Чернівці</name>
+    <currencies><currency id="UAH" rate="1"/></currencies>
+    <categories>
+      <category id="150001">Чохли на телефон</category>
+      <category id="150002" parentId="150001">Snake Case</category>
+    </categories>
+    <offers>
+      <offer id="NF-00037879" available="true">
+        <name>Чохол з принтом зміїної шкіри на 13 ProMax Snake Case Black</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037879</vendorCode>
+        <stock_quantity>16</stock_quantity>
+        <param name="Модель">IPhone 13 Pro max</param>
+        <param name="Цвет">Black</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+      <offer id="NF-00037881" available="true">
+        <name>Чохол з принтом зміїної шкіри на 13 ProMax Snake Case Blue</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037881</vendorCode>
+        <stock_quantity>11</stock_quantity>
+        <param name="Модель">IPhone 13 Pro max</param>
+        <param name="Цвет">Blue</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+      <offer id="NF-00037880" available="true">
+        <name>Чохол з принтом зміїної шкіри на 13 ProMax Snake Case Brown</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037880</vendorCode>
+        <stock_quantity>13</stock_quantity>
+        <param name="Модель">IPhone 13 Pro max</param>
+        <param name="Цвет">Brown</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+      <offer id="NF-00037883" available="true">
+        <name>Чохол з принтом зміїної шкіри на 13 ProMax Snake Case Grey</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037883</vendorCode>
+        <stock_quantity>9</stock_quantity>
+        <param name="Модель">IPhone 13 Pro max</param>
+        <param name="Цвет">Grey</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+      <offer id="NF-00037882" available="true">
+        <name>Чохол з принтом зміїної шкіри на 13 ProMax Snake Case Pink</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037882</vendorCode>
+        <stock_quantity>15</stock_quantity>
+        <param name="Модель">IPhone 13 Pro max</param>
+        <param name="Цвет">Pink</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+      <offer id="NF-00037888" available="true">
+        <name>Чохол з принтом зміїної шкіри на 14 ProMax Snake Case Biege</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037888</vendorCode>
+        <stock_quantity>1</stock_quantity>
+        <param name="Модель">IPhone 14 Pro max</param>
+        <param name="Цвет">Biege</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+      <offer id="NF-00037884" available="true">
+        <name>Чохол з принтом зміїної шкіри на 14 ProMax Snake Case Black</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037884</vendorCode>
+        <stock_quantity>9</stock_quantity>
+        <param name="Модель">IPhone 14 Pro max</param>
+        <param name="Цвет">Black</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+      <offer id="NF-00037885" available="true">
+        <name>Чохол з принтом зміїної шкіри на 14 ProMax Snake Case Brown</name>
+        <price>226</price>
+        <currencyId>UAH</currencyId>
+        <categoryId>150002</categoryId>
+        <vendor>Apple</vendor>
+        <vendorCode>НФ-00037885</vendorCode>
+        <stock_quantity>9</stock_quantity>
+        <param name="Модель">IPhone 14 Pro max</param>
+        <param name="Цвет">Brown</param>
+        <param name="Материал">Искусственная кожа</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

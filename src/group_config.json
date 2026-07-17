@@ -1,0 +1,1488 @@
+{
+ "_comment": "Постоянные ID групп сайта. НЕ перегенерировать. Новые группы получают ID = max+1.",
+ "next_free_id": 150187,
+ "groups": [
+  {
+   "id": 150001,
+   "name": "Чохли на телефон",
+   "parent_id": null
+  },
+  {
+   "id": 150002,
+   "name": "Snake Case",
+   "parent_id": 150001
+  },
+  {
+   "id": 150003,
+   "name": "WaterProof Case",
+   "parent_id": 150001
+  },
+  {
+   "id": 150004,
+   "name": "Book Wallet Cover",
+   "parent_id": 150001
+  },
+  {
+   "id": 150005,
+   "name": "Nubuk Flip",
+   "parent_id": 150001
+  },
+  {
+   "id": 150006,
+   "name": "Книжки Molancano",
+   "parent_id": 150001
+  },
+  {
+   "id": 150007,
+   "name": "NoLo",
+   "parent_id": 150001
+  },
+  {
+   "id": 150008,
+   "name": "NeLo",
+   "parent_id": 150001
+  },
+  {
+   "id": 150009,
+   "name": "Автотовари",
+   "parent_id": null
+  },
+  {
+   "id": 150010,
+   "name": "Silicone Case",
+   "parent_id": null,
+   "source_raw": "01 Silicone Case",
+   "level": 0
+  },
+  {
+   "id": 150011,
+   "name": "Huawei Silicone Case",
+   "parent_id": 150010,
+   "source_raw": "Huawei Silicone Case",
+   "level": 1
+  },
+  {
+   "id": 150012,
+   "name": "Samsung Silicone Case",
+   "parent_id": 150010,
+   "source_raw": "Samsung Silicone Case",
+   "level": 1
+  },
+  {
+   "id": 150013,
+   "name": "Xiaomi Silicone Case",
+   "parent_id": 150010,
+   "source_raw": "Xiaomi Silicone Case",
+   "level": 1
+  },
+  {
+   "id": 150014,
+   "name": "Захисне скло",
+   "parent_id": null,
+   "source_raw": "1 Захисне скло",
+   "level": 0
+  },
+  {
+   "id": 150015,
+   "name": "Magic box glass",
+   "parent_id": 150014,
+   "source_raw": "Magic box glass",
+   "level": 1
+  },
+  {
+   "id": 150016,
+   "name": "Mirror Privacy Glass",
+   "parent_id": 150014,
+   "source_raw": "Mirror Privacy Glass",
+   "level": 1
+  },
+  {
+   "id": 150017,
+   "name": "Monkey King Clear Glass",
+   "parent_id": 150014,
+   "source_raw": "Monkey King Clear Glass",
+   "level": 1
+  },
+  {
+   "id": 150018,
+   "name": "Privacy",
+   "parent_id": 150014,
+   "source_raw": "Privacy",
+   "level": 1
+  },
+  {
+   "id": 150019,
+   "name": "Захисне скло для камери на iPhone",
+   "parent_id": 150014,
+   "source_raw": "Захисне скло для камери на iPhone",
+   "level": 1
+  },
+  {
+   "id": 150020,
+   "name": "Захисне скло/модуль на камеру",
+   "parent_id": 150014,
+   "source_raw": "Захисне скло/модуль на камеру",
+   "level": 1
+  },
+  {
+   "id": 150021,
+   "name": "Скло Premium Clear",
+   "parent_id": 150014,
+   "source_raw": "Скло Premium Clear",
+   "level": 1
+  },
+  {
+   "id": 150022,
+   "name": "OG Purple Захисне скло",
+   "parent_id": 150014,
+   "source_raw": "OG Purple Захисне скло",
+   "level": 1
+  },
+  {
+   "id": 150023,
+   "name": "OG Purple Huawei",
+   "parent_id": 150022,
+   "source_raw": "OG Purple Huawei",
+   "level": 2
+  },
+  {
+   "id": 150024,
+   "name": "OG Purple iPhone",
+   "parent_id": 150022,
+   "source_raw": "OG Purple iPhone",
+   "level": 2
+  },
+  {
+   "id": 150025,
+   "name": "OG Purple Samsung",
+   "parent_id": 150022,
+   "source_raw": "OG Purple Samsung",
+   "level": 2
+  },
+  {
+   "id": 150026,
+   "name": "OG Purple Xiaomi",
+   "parent_id": 150022,
+   "source_raw": "OG Purple Xiaomi",
+   "level": 2
+  },
+  {
+   "id": 150027,
+   "name": "AirPods Case",
+   "parent_id": null,
+   "source_raw": "AirPods Case",
+   "level": 0
+  },
+  {
+   "id": 150028,
+   "name": "Alca",
+   "parent_id": 150027,
+   "source_raw": "Alca",
+   "level": 1
+  },
+  {
+   "id": 150029,
+   "name": "Leather",
+   "parent_id": 150027,
+   "source_raw": "Leather",
+   "level": 1
+  },
+  {
+   "id": 150030,
+   "name": "Logo",
+   "parent_id": 150027,
+   "source_raw": "Logo",
+   "level": 1
+  },
+  {
+   "id": 150031,
+   "name": "Marble",
+   "parent_id": 150027,
+   "source_raw": "Marble",
+   "level": 1
+  },
+  {
+   "id": 150032,
+   "name": "інші",
+   "parent_id": 150027,
+   "source_raw": "інші",
+   "level": 1
+  },
+  {
+   "id": 150033,
+   "name": "Android case",
+   "parent_id": null,
+   "source_raw": "Android case",
+   "level": 0
+  },
+  {
+   "id": 150034,
+   "name": "Butterfly Case",
+   "parent_id": 150033,
+   "source_raw": "Butterfly Case",
+   "level": 1
+  },
+  {
+   "id": 150035,
+   "name": "Carbon Samsung Case",
+   "parent_id": 150033,
+   "source_raw": "Carbon Samsung Case",
+   "level": 1
+  },
+  {
+   "id": 150036,
+   "name": "Clear Ring",
+   "parent_id": 150033,
+   "source_raw": "Clear Ring",
+   "level": 1
+  },
+  {
+   "id": 150037,
+   "name": "Crystal Cam Case",
+   "parent_id": 150033,
+   "source_raw": "Crystal Cam Case",
+   "level": 1
+  },
+  {
+   "id": 150038,
+   "name": "Flower Print",
+   "parent_id": 150033,
+   "source_raw": "Flower Print",
+   "level": 1
+  },
+  {
+   "id": 150039,
+   "name": "Gradient Magsafe Case Samsung",
+   "parent_id": 150033,
+   "source_raw": "Gradient Magsafe Case Samsung",
+   "level": 1
+  },
+  {
+   "id": 150040,
+   "name": "INVISIBLE BRACKET",
+   "parent_id": 150033,
+   "source_raw": "INVISIBLE BRACKET",
+   "level": 1
+  },
+  {
+   "id": 150041,
+   "name": "LV Glass Case",
+   "parent_id": 150033,
+   "source_raw": "LV Glass Case",
+   "level": 1
+  },
+  {
+   "id": 150042,
+   "name": "Magnetic Samsung Case",
+   "parent_id": 150033,
+   "source_raw": "Magnetic Samsung Case",
+   "level": 1
+  },
+  {
+   "id": 150043,
+   "name": "MagSafe Matte Samsung Case",
+   "parent_id": 150033,
+   "source_raw": "MagSafe Matte Samsung Case",
+   "level": 1
+  },
+  {
+   "id": 150044,
+   "name": "Molan Cano Jelly Card Case",
+   "parent_id": 150033,
+   "source_raw": "Molan Cano Jelly Card Case",
+   "level": 1
+  },
+  {
+   "id": 150045,
+   "name": "Molan Cano Jelly Sparkle",
+   "parent_id": 150033,
+   "source_raw": "Molan Cano Jelly Sparkle",
+   "level": 1
+  },
+  {
+   "id": 150046,
+   "name": "Molan Cano Shockproof",
+   "parent_id": 150033,
+   "source_raw": "Molan Cano Shockproof",
+   "level": 1
+  },
+  {
+   "id": 150047,
+   "name": "Shockproof Android Case",
+   "parent_id": 150033,
+   "source_raw": "Shockproof Android Case",
+   "level": 1
+  },
+  {
+   "id": 150048,
+   "name": "Space Capsule",
+   "parent_id": 150033,
+   "source_raw": "Space Capsule",
+   "level": 1
+  },
+  {
+   "id": 150049,
+   "name": "UAG Samsung",
+   "parent_id": 150033,
+   "source_raw": "UAG Samsung",
+   "level": 1
+  },
+  {
+   "id": 150050,
+   "name": "Clear Print",
+   "parent_id": 150033,
+   "source_raw": "Clear Print*",
+   "level": 1
+  },
+  {
+   "id": 150051,
+   "name": "Glossy",
+   "parent_id": 150033,
+   "source_raw": "Glossy",
+   "level": 1
+  },
+  {
+   "id": 150052,
+   "name": "Glossy case",
+   "parent_id": 150051,
+   "source_raw": "Glossy case",
+   "level": 2
+  },
+  {
+   "id": 150053,
+   "name": "Glossy Clear case",
+   "parent_id": 150051,
+   "source_raw": "Glossy Clear case",
+   "level": 2
+  },
+  {
+   "id": 150054,
+   "name": "Glossy Clear Chain",
+   "parent_id": 150051,
+   "source_raw": "Glossy Clear Chain",
+   "level": 2
+  },
+  {
+   "id": 150055,
+   "name": "Kids Case",
+   "parent_id": 150033,
+   "source_raw": "Kids Case",
+   "level": 1
+  },
+  {
+   "id": 150056,
+   "name": "BoB Monster",
+   "parent_id": 150055,
+   "source_raw": "BoB Monster",
+   "level": 2
+  },
+  {
+   "id": 150057,
+   "name": "CapyBara",
+   "parent_id": 150055,
+   "source_raw": "CapyBara",
+   "level": 2
+  },
+  {
+   "id": 150058,
+   "name": "Hope case",
+   "parent_id": 150055,
+   "source_raw": "Hope case",
+   "level": 2
+  },
+  {
+   "id": 150059,
+   "name": "Kuromi Pocket Case",
+   "parent_id": 150055,
+   "source_raw": "Kuromi Pocket Case",
+   "level": 2
+  },
+  {
+   "id": 150060,
+   "name": "Minnie Mouse",
+   "parent_id": 150055,
+   "source_raw": "Minnie Mouse",
+   "level": 2
+  },
+  {
+   "id": 150061,
+   "name": "Mirror Star Crossbody Case",
+   "parent_id": 150055,
+   "source_raw": "Mirror Star Crossbody Case",
+   "level": 2
+  },
+  {
+   "id": 150062,
+   "name": "Pink Rabbit",
+   "parent_id": 150055,
+   "source_raw": "Pink Rabbit",
+   "level": 2
+  },
+  {
+   "id": 150063,
+   "name": "Teddy Bear",
+   "parent_id": 150055,
+   "source_raw": "Teddy Bear",
+   "level": 2
+  },
+  {
+   "id": 150064,
+   "name": "Light wings",
+   "parent_id": 150033,
+   "source_raw": "Light wings",
+   "level": 1
+  },
+  {
+   "id": 150065,
+   "name": "Light wings Diamond",
+   "parent_id": 150064,
+   "source_raw": "Light wings Diamond",
+   "level": 2
+  },
+  {
+   "id": 150066,
+   "name": "Light with Magsafe",
+   "parent_id": 150064,
+   "source_raw": "Light with Magsafe",
+   "level": 2
+  },
+  {
+   "id": 150067,
+   "name": "Shine TPU",
+   "parent_id": 150033,
+   "source_raw": "Shine TPU",
+   "level": 1
+  },
+  {
+   "id": 150068,
+   "name": "Shine TPU Huawei",
+   "parent_id": 150067,
+   "source_raw": "Shine TPU Huawei",
+   "level": 2
+  },
+  {
+   "id": 150069,
+   "name": "Shine TPU Samsung",
+   "parent_id": 150067,
+   "source_raw": "Shine TPU Samsung",
+   "level": 2
+  },
+  {
+   "id": 150070,
+   "name": "Shine TPU Xiaomi",
+   "parent_id": 150067,
+   "source_raw": "Shine TPU Xiaomi",
+   "level": 2
+  },
+  {
+   "id": 150071,
+   "name": "Android Протиударні",
+   "parent_id": null,
+   "source_raw": "Android Протиударні",
+   "level": 0
+  },
+  {
+   "id": 150072,
+   "name": "Discover innovation case",
+   "parent_id": 150071,
+   "source_raw": "Discover innovation case",
+   "level": 1
+  },
+  {
+   "id": 150073,
+   "name": "Magnetic Magsafe Samsung case",
+   "parent_id": 150071,
+   "source_raw": "Magnetic Magsafe Samsung case",
+   "level": 1
+  },
+  {
+   "id": 150074,
+   "name": "Slide Phone Case with Ring",
+   "parent_id": 150071,
+   "source_raw": "Slide Phone Case with Ring",
+   "level": 1
+  },
+  {
+   "id": 150075,
+   "name": "Apple Watch Band's",
+   "parent_id": null,
+   "source_raw": "Apple Watch Band's",
+   "level": 0
+  },
+  {
+   "id": 150076,
+   "name": "Alpine Band",
+   "parent_id": 150075,
+   "source_raw": "Alpine Band",
+   "level": 1
+  },
+  {
+   "id": 150077,
+   "name": "Apple watch Band AP LV Gucci",
+   "parent_id": 150075,
+   "source_raw": "Apple watch Band AP LV Gucci",
+   "level": 1
+  },
+  {
+   "id": 150078,
+   "name": "Apple Watch Nike Sport Band's",
+   "parent_id": 150075,
+   "source_raw": "Apple Watch Nike Sport Band's",
+   "level": 1
+  },
+  {
+   "id": 150079,
+   "name": "Apple Watch Sport Band",
+   "parent_id": 150075,
+   "source_raw": "Apple Watch Sport Band",
+   "level": 1
+  },
+  {
+   "id": 150080,
+   "name": "Leather apple watch band",
+   "parent_id": 150075,
+   "source_raw": "Leather apple watch band",
+   "level": 1
+  },
+  {
+   "id": 150081,
+   "name": "LV Gucci Hermes",
+   "parent_id": 150075,
+   "source_raw": "LV Gucci Hermes",
+   "level": 1
+  },
+  {
+   "id": 150082,
+   "name": "Metal /Ceramic Apple watch band",
+   "parent_id": 150075,
+   "source_raw": "Metal /Ceramic Apple watch band",
+   "level": 1
+  },
+  {
+   "id": 150083,
+   "name": "milanese band",
+   "parent_id": 150075,
+   "source_raw": "milanese band",
+   "level": 1
+  },
+  {
+   "id": 150084,
+   "name": "Nylon band",
+   "parent_id": 150075,
+   "source_raw": "Nylon band",
+   "level": 1
+  },
+  {
+   "id": 150085,
+   "name": "Solo Loop",
+   "parent_id": 150075,
+   "source_raw": "Solo Loop",
+   "level": 1
+  },
+  {
+   "id": 150086,
+   "name": "Van Cleef",
+   "parent_id": 150075,
+   "source_raw": "Van Cleef",
+   "level": 1
+  },
+  {
+   "id": 150087,
+   "name": "Band 18/20/22/24mm",
+   "parent_id": null,
+   "source_raw": "Band 18/20/22/24mm",
+   "level": 0
+  },
+  {
+   "id": 150088,
+   "name": "18/24mm Band",
+   "parent_id": 150087,
+   "source_raw": "18/24mm Band",
+   "level": 1
+  },
+  {
+   "id": 150089,
+   "name": "Band Mi",
+   "parent_id": null,
+   "source_raw": "Band Mi",
+   "level": 0
+  },
+  {
+   "id": 150090,
+   "name": "Mi 3/4 Band",
+   "parent_id": 150089,
+   "source_raw": "Mi 3/4 Band",
+   "level": 1
+  },
+  {
+   "id": 150091,
+   "name": "Mi 3/4/5/6",
+   "parent_id": 150090,
+   "source_raw": "Mi 3/4/5/6",
+   "level": 2
+  },
+  {
+   "id": 150092,
+   "name": "Milanese",
+   "parent_id": 150090,
+   "source_raw": "Milanese",
+   "level": 2
+  },
+  {
+   "id": 150093,
+   "name": "Mi 5/6 Band",
+   "parent_id": 150089,
+   "source_raw": "Mi 5/6 Band",
+   "level": 1
+  },
+  {
+   "id": 150094,
+   "name": "Mi 7",
+   "parent_id": 150089,
+   "source_raw": "Mi 7",
+   "level": 1
+  },
+  {
+   "id": 150095,
+   "name": "Mi 7 3-Bead",
+   "parent_id": 150094,
+   "source_raw": "Mi 7 3-Bead",
+   "level": 2
+  },
+  {
+   "id": 150096,
+   "name": "Mi 7 Milanes",
+   "parent_id": 150094,
+   "source_raw": "Mi 7 Milanes",
+   "level": 2
+  },
+  {
+   "id": 150097,
+   "name": "Mi Silicone Band",
+   "parent_id": 150094,
+   "source_raw": "Mi Silicone Band",
+   "level": 2
+  },
+  {
+   "id": 150098,
+   "name": "Baseus",
+   "parent_id": null,
+   "source_raw": "Baseus*",
+   "level": 0
+  },
+  {
+   "id": 150099,
+   "name": "Baseus cable",
+   "parent_id": 150098,
+   "source_raw": "Baseus cable",
+   "level": 1
+  },
+  {
+   "id": 150100,
+   "name": "Baseus Charger",
+   "parent_id": 150098,
+   "source_raw": "Baseus Charger",
+   "level": 1
+  },
+  {
+   "id": 150101,
+   "name": "Baseus mouse",
+   "parent_id": 150098,
+   "source_raw": "Baseus mouse",
+   "level": 1
+  },
+  {
+   "id": 150102,
+   "name": "Baseus TWS",
+   "parent_id": 150098,
+   "source_raw": "Baseus TWS",
+   "level": 1
+  },
+  {
+   "id": 150103,
+   "name": "Автомобільні аксесуари Baseus",
+   "parent_id": 150098,
+   "source_raw": "Автомобільні аксесуари Baseus",
+   "level": 1
+  },
+  {
+   "id": 150104,
+   "name": "Clear Case",
+   "parent_id": null,
+   "source_raw": "Clear Case",
+   "level": 0
+  },
+  {
+   "id": 150105,
+   "name": "Прозорі чохли Pocket",
+   "parent_id": 150104,
+   "source_raw": "Прозорі чохли Pocket",
+   "level": 1
+  },
+  {
+   "id": 150106,
+   "name": "iVoler Shockproof camera protect clear case",
+   "parent_id": 150104,
+   "source_raw": "iVoler Shockproof camera protect clear case",
+   "level": 1
+  },
+  {
+   "id": 150107,
+   "name": "iVoler Shockproof camera protect clear case iPhone",
+   "parent_id": 150106,
+   "source_raw": "iVoler Shockproof camera protect clear case iPhone",
+   "level": 2
+  },
+  {
+   "id": 150108,
+   "name": "iVoler Shockproof camera protect clear case Samsung",
+   "parent_id": 150106,
+   "source_raw": "iVoler Shockproof camera protect clear case Samsung",
+   "level": 2
+  },
+  {
+   "id": 150109,
+   "name": "iVoler Shockproof camera protect clear case Xiaomi",
+   "parent_id": 150106,
+   "source_raw": "iVoler Shockproof camera protect clear case Xiaomi",
+   "level": 2
+  },
+  {
+   "id": 150110,
+   "name": "Clear Case Space",
+   "parent_id": null,
+   "source_raw": "Clear Case Space",
+   "level": 0
+  },
+  {
+   "id": 150111,
+   "name": "Space Clear",
+   "parent_id": 150110,
+   "source_raw": "Space Clear",
+   "level": 1
+  },
+  {
+   "id": 150112,
+   "name": "Space collection",
+   "parent_id": 150110,
+   "source_raw": "Space collection",
+   "level": 1
+  },
+  {
+   "id": 150113,
+   "name": "Space with Magsafe",
+   "parent_id": 150110,
+   "source_raw": "Space with Magsafe",
+   "level": 1
+  },
+  {
+   "id": 150114,
+   "name": "Hoco",
+   "parent_id": null,
+   "source_raw": "Hoco",
+   "level": 0
+  },
+  {
+   "id": 150115,
+   "name": "HOCO car charger",
+   "parent_id": 150114,
+   "source_raw": "HOCO car charger",
+   "level": 1
+  },
+  {
+   "id": 150116,
+   "name": "HOCO Колонки",
+   "parent_id": 150114,
+   "source_raw": "HOCO Колонки",
+   "level": 1
+  },
+  {
+   "id": 150117,
+   "name": "Hoco Навушники",
+   "parent_id": 150114,
+   "source_raw": "Hoco Навушники",
+   "level": 1
+  },
+  {
+   "id": 150118,
+   "name": "mouse hoco",
+   "parent_id": 150114,
+   "source_raw": "mouse hoco",
+   "level": 1
+  },
+  {
+   "id": 150119,
+   "name": "Для ігроманів Hoco",
+   "parent_id": 150114,
+   "source_raw": "Для ігроманів Hoco",
+   "level": 1
+  },
+  {
+   "id": 150120,
+   "name": "Кабелі / блоки Hoco",
+   "parent_id": 150114,
+   "source_raw": "Кабелі / блоки Hoco",
+   "level": 1
+  },
+  {
+   "id": 150121,
+   "name": "Павербанк Hoco/Borofone",
+   "parent_id": 150114,
+   "source_raw": "Павербанк Hoco/Borofone",
+   "level": 1
+  },
+  {
+   "id": 150122,
+   "name": "Тримачі/ підставки Hoco",
+   "parent_id": 150114,
+   "source_raw": "Тримачі/ підставки Hoco",
+   "level": 1
+  },
+  {
+   "id": 150123,
+   "name": "Iphone Case with Magsafe",
+   "parent_id": null,
+   "source_raw": "Iphone Case with Magsafe",
+   "level": 0
+  },
+  {
+   "id": 150124,
+   "name": "Series Style Case",
+   "parent_id": 150123,
+   "source_raw": "17 Series Style Case",
+   "level": 1
+  },
+  {
+   "id": 150125,
+   "name": "AG Glass",
+   "parent_id": 150123,
+   "source_raw": "AG Glass",
+   "level": 1
+  },
+  {
+   "id": 150126,
+   "name": "AG-ACRYLICS MagsafeTitanium Case",
+   "parent_id": 150123,
+   "source_raw": "AG-ACRYLICS MagsafeTitanium Case",
+   "level": 1
+  },
+  {
+   "id": 150127,
+   "name": "AG-ACRYLICS Shine Case",
+   "parent_id": 150123,
+   "source_raw": "AG-ACRYLICS Shine Case",
+   "level": 1
+  },
+  {
+   "id": 150128,
+   "name": "Apple Bracket Lans Case",
+   "parent_id": 150123,
+   "source_raw": "Apple Bracket Lans Case",
+   "level": 1
+  },
+  {
+   "id": 150129,
+   "name": "CrossBody iPhone",
+   "parent_id": 150123,
+   "source_raw": "CrossBody iPhone",
+   "level": 1
+  },
+  {
+   "id": 150130,
+   "name": "Cs clear Stand with Magsafe",
+   "parent_id": 150123,
+   "source_raw": "Cs clear Stand with Magsafe",
+   "level": 1
+  },
+  {
+   "id": 150131,
+   "name": "Electroplate Magsafe Case",
+   "parent_id": 150123,
+   "source_raw": "Electroplate Magsafe Case",
+   "level": 1
+  },
+  {
+   "id": 150132,
+   "name": "Figura MagSafe",
+   "parent_id": 150123,
+   "source_raw": "Figura MagSafe",
+   "level": 1
+  },
+  {
+   "id": 150133,
+   "name": "Flower Case",
+   "parent_id": 150123,
+   "source_raw": "Flower Case",
+   "level": 1
+  },
+  {
+   "id": 150134,
+   "name": "iPhone Beats Silicone Case with Magsafe",
+   "parent_id": 150123,
+   "source_raw": "iPhone Beats Silicone Case with Magsafe",
+   "level": 1
+  },
+  {
+   "id": 150135,
+   "name": "iPhone Clear Case with MagSafe",
+   "parent_id": 150123,
+   "source_raw": "iPhone Clear Case with MagSafe",
+   "level": 1
+  },
+  {
+   "id": 150136,
+   "name": "Magsafe Carbon Case",
+   "parent_id": 150123,
+   "source_raw": "Magsafe Carbon Case",
+   "level": 1
+  },
+  {
+   "id": 150137,
+   "name": "Magsafe Matte Case",
+   "parent_id": 150123,
+   "source_raw": "Magsafe Matte Case",
+   "level": 1
+  },
+  {
+   "id": 150138,
+   "name": "MCH Glass",
+   "parent_id": 150123,
+   "source_raw": "MCH Glass",
+   "level": 1
+  },
+  {
+   "id": 150139,
+   "name": "Ombre Shine",
+   "parent_id": 150123,
+   "source_raw": "Ombre Shine",
+   "level": 1
+  },
+  {
+   "id": 150140,
+   "name": "Shockproof, matte thin, carbon",
+   "parent_id": 150123,
+   "source_raw": "Shockproof, matte thin, carbon",
+   "level": 1
+  },
+  {
+   "id": 150141,
+   "name": "Strap&Stand Case",
+   "parent_id": 150123,
+   "source_raw": "Strap&Stand Case",
+   "level": 1
+  },
+  {
+   "id": 150142,
+   "name": "velure jeans print",
+   "parent_id": 150123,
+   "source_raw": "velure jeans print",
+   "level": 1
+  },
+  {
+   "id": 150143,
+   "name": "VAWI",
+   "parent_id": 150123,
+   "source_raw": "VAWI",
+   "level": 1
+  },
+  {
+   "id": 150144,
+   "name": "Gradient IPhone",
+   "parent_id": 150143,
+   "source_raw": "Gradient IPhone",
+   "level": 2
+  },
+  {
+   "id": 150145,
+   "name": "Ribbed Chameleon IPhone",
+   "parent_id": 150143,
+   "source_raw": "Ribbed Chameleon IPhone",
+   "level": 2
+  },
+  {
+   "id": 150146,
+   "name": "VAWI Vanquish",
+   "parent_id": 150143,
+   "source_raw": "VAWI Vanquish",
+   "level": 2
+  },
+  {
+   "id": 150147,
+   "name": "IPhone Case без Magsafe",
+   "parent_id": null,
+   "source_raw": "IPhone Case без Magsafe",
+   "level": 0
+  },
+  {
+   "id": 150148,
+   "name": "3d case",
+   "parent_id": 150147,
+   "source_raw": "3d case",
+   "level": 1
+  },
+  {
+   "id": 150149,
+   "name": "3d Squish Cat Paw Fluffy Case",
+   "parent_id": 150147,
+   "source_raw": "3d Squish Cat Paw Fluffy Case",
+   "level": 1
+  },
+  {
+   "id": 150150,
+   "name": "ACRYLICS Shine Case",
+   "parent_id": 150147,
+   "source_raw": "ACRYLICS Shine Case",
+   "level": 1
+  },
+  {
+   "id": 150151,
+   "name": "Alcantara iPhone",
+   "parent_id": 150147,
+   "source_raw": "Alcantara iPhone",
+   "level": 1
+  },
+  {
+   "id": 150152,
+   "name": "Anny Shining/ Chameleon",
+   "parent_id": 150147,
+   "source_raw": "Anny Shining/ Chameleon",
+   "level": 1
+  },
+  {
+   "id": 150153,
+   "name": "Braid case",
+   "parent_id": 150147,
+   "source_raw": "Braid case",
+   "level": 1
+  },
+  {
+   "id": 150154,
+   "name": "Camshield Case",
+   "parent_id": 150147,
+   "source_raw": "Camshield Case",
+   "level": 1
+  },
+  {
+   "id": 150155,
+   "name": "CCase кросбоді",
+   "parent_id": 150147,
+   "source_raw": "CCase кросбоді",
+   "level": 1
+  },
+  {
+   "id": 150156,
+   "name": "Clear Print Iphone",
+   "parent_id": 150147,
+   "source_raw": "Clear Print Iphone",
+   "level": 1
+  },
+  {
+   "id": 150157,
+   "name": "CS Clear case Iphone",
+   "parent_id": 150147,
+   "source_raw": "CS Clear case Iphone",
+   "level": 1
+  },
+  {
+   "id": 150158,
+   "name": "CS Clear Stand Case iPhone",
+   "parent_id": 150147,
+   "source_raw": "CS Clear Stand Case iPhone",
+   "level": 1
+  },
+  {
+   "id": 150159,
+   "name": "iPhone silicone autofocus case",
+   "parent_id": 150147,
+   "source_raw": "iPhone silicone autofocus case",
+   "level": 1
+  },
+  {
+   "id": 150160,
+   "name": "Karl Lagerfield",
+   "parent_id": 150147,
+   "source_raw": "Karl Lagerfield",
+   "level": 1
+  },
+  {
+   "id": 150161,
+   "name": "LV Dior Gucci MiuMiu",
+   "parent_id": 150147,
+   "source_raw": "LV Dior Gucci MiuMiu",
+   "level": 1
+  },
+  {
+   "id": 150162,
+   "name": "Rabbit Plush Case",
+   "parent_id": 150147,
+   "source_raw": "Rabbit Plush Case",
+   "level": 1
+  },
+  {
+   "id": 150163,
+   "name": "Rimowa Case",
+   "parent_id": 150147,
+   "source_raw": "Rimowa Case",
+   "level": 1
+  },
+  {
+   "id": 150164,
+   "name": "Shockproof, Clear Ring IPhone",
+   "parent_id": 150147,
+   "source_raw": "Shockproof, Clear Ring IPhone",
+   "level": 1
+  },
+  {
+   "id": 150165,
+   "name": "Winter Down",
+   "parent_id": 150147,
+   "source_raw": "Winter Down",
+   "level": 1
+  },
+  {
+   "id": 150166,
+   "name": "IPhone Leather",
+   "parent_id": null,
+   "source_raw": "IPhone Leather",
+   "level": 0
+  },
+  {
+   "id": 150167,
+   "name": "Case.Pro",
+   "parent_id": 150166,
+   "source_raw": "Case.Pro",
+   "level": 1
+  },
+  {
+   "id": 150168,
+   "name": "Colour Splash leather",
+   "parent_id": 150166,
+   "source_raw": "Colour Splash leather",
+   "level": 1
+  },
+  {
+   "id": 150169,
+   "name": "iPhone Leather Magsafe Case",
+   "parent_id": 150166,
+   "source_raw": "iPhone Leather Magsafe Case",
+   "level": 1
+  },
+  {
+   "id": 150170,
+   "name": "Metal,Gator and Phyton Skin Case",
+   "parent_id": 150166,
+   "source_raw": "Metal,Gator and Phyton Skin Case",
+   "level": 1
+  },
+  {
+   "id": 150171,
+   "name": "Брендовані шкіряні чохли",
+   "parent_id": 150166,
+   "source_raw": "Брендовані шкіряні чохли",
+   "level": 1
+  },
+  {
+   "id": 150172,
+   "name": "IPhone Swarovski",
+   "parent_id": null,
+   "source_raw": "IPhone Swarovski",
+   "level": 0
+  },
+  {
+   "id": 150173,
+   "name": "Swarovski Crystaline",
+   "parent_id": 150172,
+   "source_raw": "Swarovski Crystaline",
+   "level": 1
+  },
+  {
+   "id": 150174,
+   "name": "Swarovski with Magsafe",
+   "parent_id": 150172,
+   "source_raw": "Swarovski with Magsafe",
+   "level": 1
+  },
+  {
+   "id": 150175,
+   "name": "Urban Armor Gear",
+   "parent_id": null,
+   "source_raw": "Urban Armor Gear",
+   "level": 0
+  },
+  {
+   "id": 150176,
+   "name": "UAG APPLE",
+   "parent_id": 150175,
+   "source_raw": "UAG APPLE",
+   "level": 1
+  },
+  {
+   "id": 150177,
+   "name": "Планшети чохли",
+   "parent_id": null,
+   "source_raw": "Планшети чохли",
+   "level": 0
+  },
+  {
+   "id": 150178,
+   "name": "iPad Smart Case",
+   "parent_id": 150177,
+   "source_raw": "iPad Smart Case",
+   "level": 1
+  },
+  {
+   "id": 150179,
+   "name": "iPad Smart Case for Pencil",
+   "parent_id": 150177,
+   "source_raw": "iPad Smart Case for Pencil",
+   "level": 1
+  },
+  {
+   "id": 150180,
+   "name": "Samsung, Lenovo Smart Case",
+   "parent_id": 150177,
+   "source_raw": "Samsung, Lenovo Smart Case",
+   "level": 1
+  },
+  {
+   "id": 150181,
+   "name": "Попсокети, присоски, ремінці",
+   "parent_id": null,
+   "source_raw": "Попсокети, присоски, ремінці",
+   "level": 0
+  },
+  {
+   "id": 150182,
+   "name": "Crossbody Strap",
+   "parent_id": 150181,
+   "source_raw": "Crossbody Strap",
+   "level": 1
+  },
+  {
+   "id": 150183,
+   "name": "Magsafe Ring",
+   "parent_id": 150181,
+   "source_raw": "Magsafe Ring",
+   "level": 1
+  },
+  {
+   "id": 150184,
+   "name": "Присоски",
+   "parent_id": 150181,
+   "source_raw": "Присоски",
+   "level": 1
+  },
+  {
+   "id": 150185,
+   "name": "Чохли на Macbook",
+   "parent_id": null,
+   "source_raw": "Чохли на Macbook",
+   "level": 0
+  },
+  {
+   "id": 150186,
+   "name": "HardShell for Mac",
+   "parent_id": 150185,
+   "source_raw": "HardShell for Mac",
+   "level": 1
+  }
+ ],
+ "source_map_t1": {
+  "Snake Case": 150002,
+  "WaterProof Case": 150003,
+  "Авто товари": 150009,
+  "Book Wallet Cover": 150004,
+  "Nubuk Flip": 150005,
+  "Книжки Molancano": 150006,
+  "Cиліконові чохли на  Huawei": "NoLo/NeLo по префиксу Наименования",
+  "Cиліконові чохли на Samsung": "NoLo/NeLo по префиксу Наименования",
+  "Cиліконові чохли на Xiaomi": "NoLo/NeLo по префиксу Наименования"
+ },
+ "source_map_t1_skip_headers": [
+  "Книжки для телефонів",
+  "!Cиліконові чохли"
+ ],
+ "source_map_t2": {
+  "01 Silicone Case": 150010,
+  "Huawei Silicone Case": 150011,
+  "Samsung Silicone Case": 150012,
+  "Xiaomi Silicone Case": 150013,
+  "1 Захисне скло": 150014,
+  "Magic box glass": 150015,
+  "Mirror Privacy Glass": 150016,
+  "Monkey King Clear Glass": 150017,
+  "Privacy": 150018,
+  "Захисне скло для камери на iPhone": 150019,
+  "Захисне скло/модуль на камеру": 150020,
+  "Скло Premium Clear": 150021,
+  "OG Purple Захисне скло": 150022,
+  "OG Purple Huawei": 150023,
+  "OG Purple iPhone": 150024,
+  "OG Purple Samsung": 150025,
+  "OG Purple Xiaomi": 150026,
+  "AirPods Case": 150027,
+  "Alca": 150028,
+  "Leather": 150029,
+  "Logo": 150030,
+  "Marble": 150031,
+  "інші": 150032,
+  "Android case": 150033,
+  "Butterfly Case": 150034,
+  "Carbon Samsung Case": 150035,
+  "Clear Ring": 150036,
+  "Crystal Cam Case": 150037,
+  "Flower Print": 150038,
+  "Gradient Magsafe Case Samsung": 150039,
+  "INVISIBLE BRACKET": 150040,
+  "LV Glass Case": 150041,
+  "Magnetic Samsung Case": 150042,
+  "MagSafe Matte Samsung Case": 150043,
+  "Molan Cano Jelly Card Case": 150044,
+  "Molan Cano Jelly Sparkle": 150045,
+  "Molan Cano Shockproof": 150046,
+  "Shockproof Android Case": 150047,
+  "Space Capsule": 150048,
+  "UAG Samsung": 150049,
+  "Clear Print*": 150050,
+  "Clear print": 150050,
+  "Glossy": 150051,
+  "Glossy case": 150052,
+  "Glossy Clear case": 150053,
+  "Glossy Clear Chain": 150054,
+  "Kids Case": 150055,
+  "BoB Monster": 150056,
+  "CapyBara": 150057,
+  "Hope case": 150058,
+  "Kuromi Pocket Case": 150059,
+  "Minnie Mouse": 150060,
+  "Mirror Star Crossbody Case": 150061,
+  "Pink Rabbit": 150062,
+  "Teddy Bear": 150063,
+  "Light wings": 150064,
+  "Light Wings": 150064,
+  "Light wings Diamond": 150065,
+  "Light with Magsafe": 150066,
+  "Shine TPU": 150067,
+  "Shine TPU Huawei": 150068,
+  "Shine TPU Samsung": 150069,
+  "Shine TPU Xiaomi": 150070,
+  "Android Протиударні": 150071,
+  "Discover innovation case": 150072,
+  "Magnetic Magsafe Samsung case": 150073,
+  "Slide Phone Case with Ring": 150074,
+  "Apple Watch Band's": 150075,
+  "Alpine Band": 150076,
+  "Apple watch Band AP LV Gucci": 150077,
+  "Apple Watch Nike Sport Band's": 150078,
+  "Apple Watch Sport Band": 150079,
+  "Leather apple watch band": 150080,
+  "LV Gucci Hermes": 150081,
+  "Metal /Ceramic Apple watch band": 150082,
+  "milanese band": 150083,
+  "Nylon band": 150084,
+  "Solo Loop": 150085,
+  "Van Cleef": 150086,
+  "Band 18/20/22/24mm": 150087,
+  "18/24mm Band": 150088,
+  "Band Mi": 150089,
+  "Mi 3/4 Band": 150090,
+  "Mi 3/4/5/6": 150091,
+  "Milanese": 150092,
+  "Mi 5/6 Band": 150093,
+  "Mi 7": 150094,
+  "Mi 7 3-Bead": 150095,
+  "Mi 7 Milanes": 150096,
+  "Mi Silicone Band": 150097,
+  "Baseus*": 150098,
+  "Baseus cable": 150099,
+  "Baseus Charger": 150100,
+  "Baseus mouse": 150101,
+  "Baseus TWS": 150102,
+  "Автомобільні аксесуари Baseus": 150103,
+  "Clear Case": 150104,
+  "Прозорі чохли Pocket": 150105,
+  "iVoler Shockproof camera protect clear case": 150106,
+  "iVoler Shockproof camera protect clear case iPhone": 150107,
+  "iVoler Shockproof camera protect clear case Samsung": 150108,
+  "iVoler Shockproof camera protect clear case Xiaomi": 150109,
+  "Clear Case Space": 150110,
+  "Space Clear": 150111,
+  "Space collection": 150112,
+  "Space with Magsafe": 150113,
+  "Hoco": 150114,
+  "HOCO car charger": 150115,
+  "HOCO Колонки": 150116,
+  "Hoco Навушники": 150117,
+  "mouse hoco": 150118,
+  "Для ігроманів Hoco": 150119,
+  "Кабелі / блоки Hoco": 150120,
+  "Павербанк Hoco/Borofone": 150121,
+  "Тримачі/ підставки Hoco": 150122,
+  "Iphone Case with Magsafe": 150123,
+  "17 Series Style Case": 150124,
+  "AG Glass": 150125,
+  "AG-ACRYLICS MagsafeTitanium Case": 150126,
+  "AG-ACRYLICS Shine Case": 150127,
+  "Apple Bracket Lans Case": 150128,
+  "CrossBody iPhone": 150129,
+  "Cs clear Stand with Magsafe": 150130,
+  "Electroplate Magsafe Case": 150131,
+  "Figura MagSafe": 150132,
+  "Flower Case": 150133,
+  "iPhone Beats Silicone Case with Magsafe": 150134,
+  "iPhone Clear Case with MagSafe": 150135,
+  "Magsafe Carbon Case": 150136,
+  "Magsafe Matte Case": 150137,
+  "MCH Glass": 150138,
+  "Ombre Shine": 150139,
+  "Shockproof, matte thin, carbon": 150140,
+  "Strap&Stand Case": 150141,
+  "velure jeans print": 150142,
+  "VAWI": 150143,
+  "Gradient IPhone": 150144,
+  "Ribbed Chameleon IPhone": 150145,
+  "VAWI Vanquish": 150146,
+  "IPhone Case без Magsafe": 150147,
+  "3d case": 150148,
+  "3d Squish Cat Paw Fluffy Case": 150149,
+  "ACRYLICS Shine Case": 150150,
+  "Alcantara iPhone": 150151,
+  "Anny Shining/ Chameleon": 150152,
+  "Braid case": 150153,
+  "Camshield Case": 150154,
+  "CCase кросбоді": 150155,
+  "Clear Print Iphone": 150156,
+  "CS Clear case Iphone": 150157,
+  "CS Clear Stand Case iPhone": 150158,
+  "iPhone silicone autofocus case": 150159,
+  "Karl Lagerfield": 150160,
+  "LV Dior Gucci MiuMiu": 150161,
+  "Rabbit Plush Case": 150162,
+  "Rimowa Case": 150163,
+  "Shockproof, Clear Ring IPhone": 150164,
+  "Winter Down": 150165,
+  "IPhone Leather": 150166,
+  "Case.Pro": 150167,
+  "Colour Splash leather": 150168,
+  "iPhone Leather Magsafe Case": 150169,
+  "Metal,Gator and Phyton Skin Case": 150170,
+  "Брендовані шкіряні чохли": 150171,
+  "IPhone Swarovski": 150172,
+  "Swarovski Crystaline": 150173,
+  "Swarovski with Magsafe": 150174,
+  "Urban Armor Gear": 150175,
+  "UAG APPLE": 150176,
+  "uag apple": 150176,
+  "Планшети чохли": 150177,
+  "iPad Smart Case": 150178,
+  "iPad Smart Case for Pencil": 150179,
+  "Samsung, Lenovo Smart Case": 150180,
+  "Попсокети, присоски, ремінці": 150181,
+  "Crossbody Strap": 150182,
+  "Magsafe Ring": 150183,
+  "Присоски": 150184,
+  "Чохли на Macbook": 150185,
+  "HardShell for Mac": 150186
+ },
+ "t1_silicone_note": "Группы 'Cиліконові чохли на ...' делятся на NoLo (150007) и NeLo (150008) по первому слову Наименования (NoLo SC / NeLo SC)."
+}
