@@ -9,3 +9,5 @@ src/sync_report.json
 sync_report.json
 __pycache__/
 *.pyc
+
+.DS_Store
