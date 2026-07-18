@@ -24,14 +24,17 @@ COL = dict(chk=0, id=1, art=2, name=3, short=4, usd=5, uah=6, avail=7, qty=8,
 CHAR_LABELS = ['Бренд', 'Модель', 'Цвет', 'Материал']
 
 
-def fmt_num(x):
-    """Число -> строка без хвостовых нулей ('226.0'->'226', '316.40'->'316.4')."""
+def num_val(x):
+    """Число -> ЧИСЛО (int/float), а не строка.
+
+    Строки вроде '3.5' Google Sheets при USER_ENTERED трактует по локали таблицы
+    и превращает в дату (3.5 -> 03.05, серийный номер 46145). Числовой JSON-литерал
+    записывается как число всегда, независимо от локали.
+    """
     if x is None or x == '':
         return ''
     f = float(x)
-    if f == int(f):
-        return str(int(f))
-    return ('%.2f' % f).rstrip('0').rstrip('.')
+    return int(f) if f == int(f) else round(f, 2)
 
 
 def _same_num(cell, value):
@@ -103,7 +106,7 @@ def build_char_slots(fields):
 def run(dry_run=False):
     book = sheet_io.open_book()
     rate, records = sheet_io.read_input(book)
-    header, rows, index = sheet_io.read_output(book)
+    header, rows, index, raw_rows = sheet_io.read_output(book)
 
     # карта существующих групп листа: имя (J) -> id (K) — для приоритета (а)
     sheet_group_id = {}
@@ -143,8 +146,12 @@ def run(dry_run=False):
             matched += 1
             r = index[code]
             cur = rows[r - 2]
-            desired = [fmt_num(usd), fmt_num(uah), avail, fmt_num(qty)]
-            same = (_same_num(cur[COL['usd']], usd)
+            desired = [num_val(usd), num_val(uah), avail, num_val(qty)]
+            raw = raw_rows[r - 2]
+            numeric_ok = all(raw[i] == '' or isinstance(raw[i], (int, float))
+                             for i in (COL['usd'], COL['uah'], COL['qty']))
+            same = (numeric_ok
+                    and _same_num(cur[COL['usd']], usd)
                     and _same_num(cur[COL['uah']], uah)
                     and cur[COL['avail']].strip() == avail
                     and _same_num(cur[COL['qty']], qty))
@@ -173,10 +180,10 @@ def run(dry_run=False):
             new_row[COL['art']] = code
             new_row[COL['name']] = rec['full']
             new_row[COL['short']] = rec['short']
-            new_row[COL['usd']] = fmt_num(usd)
-            new_row[COL['uah']] = fmt_num(uah)
+            new_row[COL['usd']] = num_val(usd)
+            new_row[COL['uah']] = num_val(uah)
             new_row[COL['avail']] = avail
-            new_row[COL['qty']] = fmt_num(qty)
+            new_row[COL['qty']] = num_val(qty)
             new_row[COL['gname']] = gname
             new_row[COL['gid']] = gid
             new_row[COL['parent']] = f.get('parent') or ''
@@ -191,7 +198,7 @@ def run(dry_run=False):
             cur = rows[r - 2]
             if not (cur[COL['avail']].strip() == 'Немає в наявності'
                     and _same_num(cur[COL['qty']], 0)):
-                updates_fi.append((f'H{r}:I{r}', [['Немає в наявності', '0']]))
+                updates_fi.append((f'H{r}:I{r}', [['Немає в наявності', 0]]))
                 removed += 1
 
     flags_all = parser_t1.flags + parser_t2.flags

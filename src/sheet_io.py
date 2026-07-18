@@ -75,6 +75,29 @@ def _num(v):
         return None
 
 
+def _cell_to_str(v):
+    """Ячейка (UNFORMATTED_VALUE) -> строка с точкой как разделителем.
+
+    Читаем ТОЛЬКО неформатированные значения: иначе локаль таблицы отдаёт
+    «3,5» вместо «3.5», а даты — как серийные номера.
+    """
+    if v is None:
+        return ''
+    if isinstance(v, bool):
+        return 'TRUE' if v else 'FALSE'
+    if isinstance(v, float):
+        return str(int(v)) if v == int(v) else repr(v)
+    if isinstance(v, int):
+        return str(v)
+    return str(v)
+
+
+def _get_unformatted(ws):
+    """Все значения листа без форматирования, приведённые к строкам."""
+    raw = ws.get_values(value_render_option='UNFORMATTED_VALUE')
+    return [[_cell_to_str(c) for c in row] for row in raw]
+
+
 # ------------------------------------------------------------------ вход
 def read_input(book):
     """Прочитать «Входні товари». Вернуть (rate, list[record]).
@@ -83,7 +106,7 @@ def read_input(book):
     Товары идут в порядке следования; group_raw — имя последнего заголовка группы.
     """
     ws = book.worksheet(INPUT_WS)
-    rows = ws.get_all_values()
+    rows = _get_unformatted(ws)
     rate = parse_rate(rows)
     records = []
     current = None
@@ -112,33 +135,48 @@ def read_input(book):
 
 # ------------------------------------------------------------------ выход (чтение)
 def read_output(book):
-    """Прочитать «Усі товари». Вернуть (header, list_of_rows, index_by_id).
+    """Прочитать «Усі товари». Вернуть (header, rows, index_by_id, raw_rows).
 
-    list_of_rows: list[list[str]] строк данных (без шапки), дополненных до 24 колонок.
+    rows:     list[list[str]] строк данных (без шапки), дополненных до 24 колонок.
     index_by_id: {ID товара (колонка B) -> номер строки на листе (1-based)}.
+    raw_rows: те же строки БЕЗ приведения к строкам — чтобы отличать число от
+              текста («110.3» текстом должно быть переписано настоящим числом).
     """
     ws = book.worksheet(OUTPUT_WS)
-    values = ws.get_all_values()
+    raw = ws.get_values(value_render_option='UNFORMATTED_VALUE')
+    values = [[_cell_to_str(c) for c in row] for row in raw]
     header = values[0] if values else []
     data = values[1:] if len(values) > 1 else []
+    raw_data = raw[1:] if len(raw) > 1 else []
     rows = []
+    raw_rows = []
     index = {}
     for i, row in enumerate(data, start=2):  # строка 2 — первая с данными
         row = list(row) + [''] * (24 - len(row))
         rows.append(row)
+        rr = list(raw_data[i - 2]) if i - 2 < len(raw_data) else []
+        raw_rows.append(rr + [''] * (24 - len(rr)))
         pid = row[1].strip()
         if pid:
             index[pid] = i
-    return header, rows, index
+    return header, rows, index, raw_rows
 
 
 # ------------------------------------------------------------------ выход (запись)
+BATCH_CHUNK = 500
+
+
 def batch_update(ws, updates):
-    """updates: list[(a1_range, [[...values...]])]. Пусто -> ничего не делаем."""
+    """updates: list[(a1_range, [[...values...]])]. Пусто -> ничего не делаем.
+
+    Режем на части: один запрос с тысячами диапазонов упирается в лимиты API.
+    """
     if not updates:
         return
-    body = [{'range': rng, 'values': vals} for rng, vals in updates]
-    ws.batch_update(body, value_input_option='USER_ENTERED')
+    for i in range(0, len(updates), BATCH_CHUNK):
+        chunk = updates[i:i + BATCH_CHUNK]
+        body = [{'range': rng, 'values': vals} for rng, vals in chunk]
+        ws.batch_update(body, value_input_option='USER_ENTERED')
 
 
 def append_rows(ws, rows):

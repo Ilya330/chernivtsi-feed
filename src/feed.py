@@ -21,9 +21,14 @@ C = dict(chk=0, id=1, art=2, name=3, short=4, usd=5, uah=6, avail=7, qty=8,
          c1n=12, c1v=14, c2n=15, c2v=17, c3n=18, c3v=20, c4n=21, c4v=23)
 
 
-def translit_code(code):
-    """НФ-00037879 -> NF-00037879 (стабильно и однозначно)."""
-    return code.replace('НФ', 'NF').replace('нф', 'nf')
+def fmt_out(v):
+    """Значение ячейки -> число строкой с ТОЧКОЙ, без хвостовых нулей."""
+    n = sheet_io._num(v)
+    if n is None:
+        return ''
+    if n == int(n):
+        return str(int(n))
+    return ('%.2f' % n).rstrip('0').rstrip('.')
 
 
 def load_category_tree():
@@ -77,21 +82,23 @@ def build_feed(rows, header):
 
         qty = _num(row[C['qty']])
         avail = 'true' if (row[C['avail']].strip() == 'В наявності' and qty > 0) else 'false'
-        price = row[C['uah']].strip().replace(' ', '').replace(',', '.')
 
         offer = {
-            'id': translit_code(code),
+            'id': code,                                # оригинальный код, без транслитерации
             'available': avail,
             'name': row[C['name']].strip() or row[C['short']].strip(),
-            'price': price,
+            'name_ua': row[C['short']].strip(),         # Название_короткое
+            'price': fmt_out(row[C['uah']]),
+            'vendorprice_doll': fmt_out(row[C['usd']]),  # Ціна долл.
             'categoryId': gid,
-            'vendor': row[C['c1v']].strip(),          # Бренд -> <vendor>
             'vendorCode': code,
-            'stock_quantity': str(int(qty)) if qty == int(qty) else str(qty),
+            'stock_quantity': fmt_out(row[C['qty']]),
             'params': [],
             'picture': (row[pic_idx].strip() if pic_idx is not None else ''),
         }
-        for name_i, val_i in ((C['c2n'], C['c2v']), (C['c3n'], C['c3v']), (C['c4n'], C['c4v'])):
+        # Бренд — обычная характеристика (не <vendor>)
+        for name_i, val_i in ((C['c1n'], C['c1v']), (C['c2n'], C['c2v']),
+                              (C['c3n'], C['c3v']), (C['c4n'], C['c4v'])):
             pname = row[name_i].strip()
             pval = row[val_i].strip()
             if pval:
@@ -138,14 +145,16 @@ def render_xml(cats, offers):
     for o in offers:
         out.append(f'      <offer id={quoteattr(o["id"])} available={quoteattr(o["available"])}>')
         out.append(f'        <name>{escape(o["name"])}</name>')
+        if o['name_ua']:
+            out.append(f'        <name_ua>{escape(o["name_ua"])}</name_ua>')
         if o['picture']:
             out.append(f'        <picture>{escape(o["picture"])}</picture>')
         out.append(f'        <price>{escape(o["price"])}</price>')
+        if o['vendorprice_doll']:
+            out.append(f'        <vendorprice_doll>{escape(o["vendorprice_doll"])}</vendorprice_doll>')
         out.append('        <currencyId>UAH</currencyId>')
         if o['categoryId']:
             out.append(f'        <categoryId>{escape(o["categoryId"])}</categoryId>')
-        if o['vendor']:
-            out.append(f'        <vendor>{escape(o["vendor"])}</vendor>')
         out.append(f'        <vendorCode>{escape(o["vendorCode"])}</vendorCode>')
         out.append(f'        <stock_quantity>{escape(o["stock_quantity"])}</stock_quantity>')
         for pname, pval in o['params']:
@@ -159,7 +168,7 @@ def render_xml(cats, offers):
 
 def run(out_path=OUT_PATH):
     book = sheet_io.open_book()
-    header, rows, _ = sheet_io.read_output(book)
+    header, rows, _idx, _raw = sheet_io.read_output(book)
     cats, offers = build_feed(rows, header)
     xml = render_xml(cats, offers)
     out_path = os.path.abspath(out_path)
