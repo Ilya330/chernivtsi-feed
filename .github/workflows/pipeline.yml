@@ -64,6 +64,7 @@ jobs:
         run: python -c "import xml.etree.ElementTree as ET; ET.parse('docs/feed.xml'); print('feed.xml — валидный XML')"
 
       - name: Commit feed if changed
+        id: commit_feed
         if: ${{ (inputs.action == 'feed' || inputs.action == 'both') && inputs.dry_run != true }}
         run: |
           git config user.name  "github-actions[bot]"
@@ -72,6 +73,20 @@ jobs:
             git add docs/feed.xml
             git commit -m "chore: update feed.xml [skip ci]"
             git push
+            echo "committed=true" >> "$GITHUB_OUTPUT"
           else
             echo "feed.xml без изменений — коммит не нужен"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Строка в «Лог» пишется ТОЛЬКО после того, как ссылка реально отдаёт
+      # новый файл (Pages собирается ~40–60 с после пуша).
+      - name: Wait for Pages, then log
+        if: ${{ (inputs.action == 'feed' || inputs.action == 'both') && inputs.dry_run != true }}
+        working-directory: src
+        run: |
+          if [ "${{ steps.commit_feed.outputs.committed }}" = "true" ]; then
+            python feed.py --confirm-log
+          else
+            python feed.py --confirm-log --skip-wait
           fi

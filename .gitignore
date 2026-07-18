@@ -11,3 +11,7 @@ __pycache__/
 *.pyc
 
 .DS_Store
+
+# отчёт сборки фида
+src/feed_report.json
+feed_report.json

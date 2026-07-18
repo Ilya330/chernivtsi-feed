@@ -7,6 +7,7 @@ import argparse
 import datetime
 import json
 import os
+import time
 from xml.sax.saxutils import escape, quoteattr
 
 import sheet_io
@@ -14,6 +15,11 @@ import sheet_io
 SHOP_NAME = 'Товари Чернівці'
 FEED_URL = 'https://Ilya330.github.io/chernivtsi-feed/feed.xml'
 OUT_PATH = os.path.join(os.path.dirname(__file__), '..', 'docs', 'feed.xml')
+REPORT_PATH = os.path.join(os.path.dirname(__file__), 'feed_report.json')
+
+# сколько ждём, пока GitHub Pages реально отдаст новый файл по ссылке
+PUBLISH_TIMEOUT = 420
+PUBLISH_POLL = 5
 
 # индексы колонок «Усі товари» (0-based)
 C = dict(chk=0, id=1, art=2, name=3, short=4, usd=5, uah=6, avail=7, qty=8,
@@ -126,10 +132,13 @@ def build_feed(rows, header):
     return cats, offers
 
 
-def render_xml(cats, offers):
+def render_xml(cats, offers, build_id):
     date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
     out = ['<?xml version="1.0" encoding="UTF-8"?>']
     out.append(f'<yml_catalog date="{date}">')
+    # Метка сборки: по ней проверяем, что Pages уже отдаёт именно этот файл.
+    # XML-комментарий парсерами игнорируется и на импорт в Prom не влияет.
+    out.append(f'  <!-- build {build_id} -->')
     out.append('  <shop>')
     out.append(f'    <name>{escape(SHOP_NAME)}</name>')
     out.append('    <currencies><currency id="UAH" rate="1"/></currencies>')
@@ -166,36 +175,115 @@ def render_xml(cats, offers):
     return '\n'.join(out) + '\n'
 
 
-def run(out_path=OUT_PATH, write_log=True):
+def run(out_path=OUT_PATH, write_log=False):
+    """Собрать feed.xml. Лог по умолчанию НЕ пишем: строка в «Лог» должна
+    появляться только после реальной публикации (см. confirm_and_log)."""
     book = sheet_io.open_book()
     header, rows, _idx, _raw = sheet_io.read_output(book)
     cats, offers = build_feed(rows, header)
-    xml = render_xml(cats, offers)
+    build_id = datetime.datetime.now().strftime('%Y%m%dT%H%M%S')
+    xml = render_xml(cats, offers, build_id)
     out_path = os.path.abspath(out_path)
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(xml)
     avail = sum(1 for o in offers if o['available'] == 'true')
     size_mb = round(os.path.getsize(out_path) / (1024 * 1024), 2)
+    report = dict(build_id=build_id, offers=len(offers), available=avail,
+                  unavailable=len(offers) - avail, categories=len(cats),
+                  size_mb=size_mb)
+    with open(REPORT_PATH, 'w', encoding='utf-8') as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
     print(f'feed.xml: {len(offers)} офферов ({avail} в наличии), '
           f'{len(cats)} категорий -> {out_path}')
-    print(f'ссылка: {FEED_URL}')
+    print(f'build {build_id} | ссылка: {FEED_URL}')
 
     if write_log:
-        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        sheet_io.append_log(book, [
-            now, 'feed', '', '', '', '', '', '', FEED_URL,
-            f'фід сформовано: офферів {len(offers)} '
-            f'(в наявності {avail}, немає {len(offers) - avail}), '
-            f'категорій {len(cats)}, {size_mb} МБ',
-        ])
+        _append_feed_log(book, report, note_suffix='')
     return len(offers), len(cats)
+
+
+def _append_feed_log(book, report, note_suffix=''):
+    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    sheet_io.append_log(book, [
+        now, 'feed', '', '', '', '', '', '', FEED_URL,
+        f'фід оновлено за посиланням: офферів {report["offers"]} '
+        f'(в наявності {report["available"]}, немає {report["unavailable"]}), '
+        f'категорій {report["categories"]}, {report["size_mb"]} МБ{note_suffix}',
+    ])
+
+
+def _fetch_head(url, nbytes=800):
+    """Первые байты файла по ссылке, в обход кэша CDN.
+
+    requests приходит вместе с gspread и берёт корневые сертификаты из certifi
+    (у системного python на macOS их может не быть).
+    """
+    import requests
+    bust = f'{url}?t={int(time.time() * 1000)}'
+    r = requests.get(bust, timeout=30, stream=True, headers={
+        'Range': f'bytes=0-{nbytes}',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+    })
+    r.raise_for_status()
+    try:
+        return r.raw.read(nbytes, decode_content=True).decode('utf-8', 'replace')
+    finally:
+        r.close()
+
+
+def confirm_and_log(timeout=PUBLISH_TIMEOUT, poll=PUBLISH_POLL, skip_wait=False):
+    """Дождаться, пока по ссылке реально появится собранный файл, и только
+    ПОСЛЕ этого записать строку в «Лог»."""
+    with open(REPORT_PATH, encoding='utf-8') as f:
+        report = json.load(f)
+    marker = f'build {report["build_id"]}'
+    book = sheet_io.open_book()
+
+    if skip_wait:
+        _append_feed_log(book, report, note_suffix='')
+        print('лог записан без ожидания (файл не менялся)')
+        return True
+
+    started = time.time()
+    published = False
+    while time.time() - started < timeout:
+        try:
+            head = _fetch_head(FEED_URL)
+            if marker in head:
+                published = True
+                break
+        except Exception as e:                      # сеть/404/Range — просто пробуем ещё
+            print(f'  ожидание публикации: {e}')
+        time.sleep(poll)
+
+    waited = int(time.time() - started)
+    if published:
+        print(f'публикация подтверждена за {waited} с — пишу лог')
+        _append_feed_log(book, report, note_suffix=f'; опубліковано за {waited} с')
+    else:
+        print(f'ВНИМАНИЕ: за {waited} с публикация не подтвердилась')
+        _append_feed_log(
+            book, report,
+            note_suffix=f'; ⚠ публікацію не підтверджено за {waited} с — '
+                        f'посилання може оновитись із затримкою')
+    return published
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', default=OUT_PATH)
-    ap.add_argument('--no-log', action='store_true',
-                    help='не писать строку в лист «Лог»')
+    ap.add_argument('--log-now', action='store_true',
+                    help='записать лог сразу после сборки, не дожидаясь публикации')
+    ap.add_argument('--confirm-log', action='store_true',
+                    help='НЕ собирать фид: дождаться появления файла по ссылке '
+                         'и записать строку в «Лог»')
+    ap.add_argument('--skip-wait', action='store_true',
+                    help='с --confirm-log: писать лог без ожидания (файл не менялся)')
+    ap.add_argument('--timeout', type=int, default=PUBLISH_TIMEOUT)
     args = ap.parse_args()
-    run(out_path=args.out, write_log=not args.no_log)
+    if args.confirm_log:
+        confirm_and_log(timeout=args.timeout, skip_wait=args.skip_wait)
+    else:
+        run(out_path=args.out, write_log=args.log_now)
