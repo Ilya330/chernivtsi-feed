@@ -166,7 +166,7 @@ def render_xml(cats, offers):
     return '\n'.join(out) + '\n'
 
 
-def run(out_path=OUT_PATH):
+def run(out_path=OUT_PATH, write_log=True):
     book = sheet_io.open_book()
     header, rows, _idx, _raw = sheet_io.read_output(book)
     cats, offers = build_feed(rows, header)
@@ -176,14 +176,26 @@ def run(out_path=OUT_PATH):
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(xml)
     avail = sum(1 for o in offers if o['available'] == 'true')
+    size_mb = round(os.path.getsize(out_path) / (1024 * 1024), 2)
     print(f'feed.xml: {len(offers)} офферов ({avail} в наличии), '
           f'{len(cats)} категорий -> {out_path}')
     print(f'ссылка: {FEED_URL}')
+
+    if write_log:
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        sheet_io.append_log(book, [
+            now, 'feed', '', '', '', '', '', '', FEED_URL,
+            f'фід сформовано: офферів {len(offers)} '
+            f'(в наявності {avail}, немає {len(offers) - avail}), '
+            f'категорій {len(cats)}, {size_mb} МБ',
+        ])
     return len(offers), len(cats)
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', default=OUT_PATH)
-    ap.parse_args()
-    run()
+    ap.add_argument('--no-log', action='store_true',
+                    help='не писать строку в лист «Лог»')
+    args = ap.parse_args()
+    run(out_path=args.out, write_log=not args.no_log)
