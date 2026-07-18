@@ -103,11 +103,7 @@ def build_char_slots(fields):
 
 
 # ------------------------------------------------------------------ основной прогон
-# защита: доля товаров прайса от числа строк листа, ниже которой синк считается аварийным
-MIN_INPUT_RATIO = 0.5
-
-
-def run(dry_run=False, force=False):
+def run(dry_run=False):
     book = sheet_io.open_book()
     rate, records = sheet_io.read_input(book)
     header, rows, index, raw_rows = sheet_io.read_output(book)
@@ -125,25 +121,6 @@ def run(dry_run=False, force=False):
     for g in parser_t2._CONFIG['groups']:
         max_id = max(max_id, int(g['id']))
     next_id = max_id + 1
-
-    # ---- предохранитель: пустой/недогруженный прайс не должен обнулять наличие ----
-    # Реальный случай: синк по пустому листу снял с наличия 11751 товар.
-    if rows and not force:
-        ratio = len(records) / len(rows)
-        if ratio < MIN_INPUT_RATIO:
-            msg = (f'ОСТАНОВЛЕНО: в прайсе {len(records)} товаров против {len(rows)} строк '
-                   f'листа ({ratio:.1%}). Похоже, «Входні товари» пуст или ещё загружается. '
-                   f'Наличие НЕ тронуто. Если это ожидаемо — запустите с force=true.')
-            print('=' * 60)
-            print(msg)
-            print('=' * 60)
-            if not dry_run:
-                now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                sheet_io.append_log(book, [
-                    now, 'sync-ОСТАНОВЛЕН', '', '', '', '', '', '', FEED_URL, msg,
-                ])
-            return dict(aborted=True, reason=msg, input_products=len(records),
-                        output_rows_before=len(rows), mode='dry-run' if dry_run else 'live')
 
     price_ids = set()
     new_group_alloc = {}   # имя новой (неизвестной) группы -> назначенный id
@@ -285,10 +262,8 @@ def _print_report(report, flags_all):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--dry-run', action='store_true')
-    ap.add_argument('--force', action='store_true',
-                    help='обойти защиту от пустого/недогруженного прайса')
     args = ap.parse_args()
-    rep = run(dry_run=args.dry_run, force=args.force)
+    rep = run(dry_run=args.dry_run)
     # для артефакта Actions
     with open('sync_report.json', 'w', encoding='utf-8') as f:
         json.dump(rep, f, ensure_ascii=False, indent=2)

@@ -18,11 +18,10 @@ function onOpen() {
     .addItem('Синхронізація + фід', 'runBoth')
     .addSeparator()
     .addItem('Пробний прогін (dry-run, без запису)', 'runDry')
-    .addItem('⚠ Синхронізація без захисту (force)', 'runSyncForce')
     .addToUi();
 }
 
-function dispatch_(action, dryRun, force) {
+function dispatch_(action, dryRun) {
   const token = PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN');
   if (!token) {
     SpreadsheetApp.getUi().alert('Не задан GITHUB_TOKEN у Властивостях скрипта.');
@@ -37,11 +36,7 @@ function dispatch_(action, dryRun, force) {
       muteHttpExceptions: true,
       payload: JSON.stringify({
         ref: 'main',
-        inputs: {
-          action: action,
-          dry_run: dryRun ? 'true' : 'false',
-          force: force ? 'true' : 'false',
-        },
+        inputs: { action: action, dry_run: dryRun ? 'true' : 'false' },
       }),
     });
   const code = resp.getResponseCode();
@@ -52,17 +47,7 @@ function dispatch_(action, dryRun, force) {
   }
 }
 
-function runSync() { dispatch_('sync', false, false); }
-function runFeed() { dispatch_('feed', false, false); }
-function runBoth() { dispatch_('both', false, false); }
-function runDry()  { dispatch_('sync', true, false); }
-
-/** Синхронизация в обход защиты от пустого прайса — только осознанно. */
-function runSyncForce() {
-  const ui = SpreadsheetApp.getUi();
-  const a = ui.alert('Синхронізація без захисту',
-    'Захист від порожнього прайсу буде вимкнено. Якщо «Входні товари» неповний, '
-    + 'товари масово отримають «Немає в наявності». Продовжити?',
-    ui.ButtonSet.YES_NO);
-  if (a === ui.Button.YES) dispatch_('sync', false, true);
-}
+function runSync() { dispatch_('sync', false); }
+function runFeed() { dispatch_('feed', false); }
+function runBoth() { dispatch_('both', false); }
+function runDry()  { dispatch_('sync', true); }

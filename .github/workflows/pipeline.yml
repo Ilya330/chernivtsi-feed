@@ -12,10 +12,6 @@ on:
         description: "Пробный прогон (ничего не писать в «Усі товари»)"
         type: boolean
         default: false
-      force:
-        description: "Обойти защиту от пустого прайса (использовать осознанно)"
-        type: boolean
-        default: false
 
 # два запуска не должны работать одновременно
 concurrency:
@@ -45,11 +41,11 @@ jobs:
         if: ${{ inputs.action == 'sync' || inputs.action == 'both' }}
         working-directory: src
         run: |
-          FLAGS=""
-          if [ "${{ inputs.dry_run }}" = "true" ]; then FLAGS="$FLAGS --dry-run"; fi
-          if [ "${{ inputs.force }}" = "true" ]; then FLAGS="$FLAGS --force"; fi
-          echo "sync.py $FLAGS"
-          python sync.py $FLAGS
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python sync.py --dry-run
+          else
+            python sync.py
+          fi
 
       - name: Upload sync report
         if: ${{ (inputs.action == 'sync' || inputs.action == 'both') && hashFiles('src/sync_report.json') != '' }}
