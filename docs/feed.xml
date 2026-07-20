@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-07-18 20:33">
-  <!-- build 20260718T203354 -->
+<yml_catalog date="2026-07-20 08:11">
+  <!-- build 20260720T081125 -->
   <shop>
     <name>Товари Чернівці</name>
     <currencies><currency id="UAH" rate="1"/></currencies>
@@ -23,7 +23,7 @@
         <param name="Цвет">Black</param>
         <param name="Материал">Искусственная кожа</param>
       </offer>
-      <offer id="НФ-00037881" available="false">
+      <offer id="НФ-00037881" available="true">
         <name>Чохол з принтом зміїної шкіри на 13 ProMax Snake Case Blue</name>
         <name_ua>13 ProMax Snake Case Blue</name_ua>
         <price>226</price>
@@ -31,13 +31,13 @@
         <currencyId>UAH</currencyId>
         <categoryId>150002</categoryId>
         <vendorCode>НФ-00037881</vendorCode>
-        <stock_quantity>0</stock_quantity>
+        <stock_quantity>11</stock_quantity>
         <param name="Бренд">Apple</param>
         <param name="Модель">IPhone 13 Pro max</param>
         <param name="Цвет">Blue</param>
         <param name="Материал">Искусственная кожа</param>
       </offer>
-      <offer id="НФ-00037880" available="false">
+      <offer id="НФ-00037880" available="true">
         <name>Чохол з принтом зміїної шкіри на 13 ProMax Snake Case Brown</name>
         <name_ua>13 ProMax Snake Case Brown</name_ua>
         <price>226</price>
@@ -45,7 +45,7 @@
         <currencyId>UAH</currencyId>
         <categoryId>150002</categoryId>
         <vendorCode>НФ-00037880</vendorCode>
-        <stock_quantity>0</stock_quantity>
+        <stock_quantity>13</stock_quantity>
         <param name="Бренд">Apple</param>
         <param name="Модель">IPhone 13 Pro max</param>
         <param name="Цвет">Brown</param>
