@@ -27,6 +27,29 @@ SIL_PALETTE = {
     27: 'Shiny Green',
 }
 
+# ---------- палитра iPhone-чехлов (нумерация цвета 1..80, задана владельцем) ----------
+# Применяется ТОЛЬКО к группам из IPHONE_PALETTE_GROUPS. Новые товары этих групп
+# всегда берут цвет отсюда по номеру. Номера 78 и 79 в списке отсутствуют.
+IPHONE_PALETTE = {
+    1: 'Mint', 2: 'Apricot', 3: 'Tahoe Blue', 4: 'Yellow', 5: 'Lilac + Cream',
+    6: 'Light Pink', 7: 'Lavender', 8: 'Dark Blue', 9: 'White', 10: 'Stone',
+    11: 'Antique White', 12: 'Pink', 13: 'Orange', 14: 'Red', 15: 'Charcoal Gray',
+    16: 'Blue', 17: 'Turquoise', 18: 'Black', 19: 'Pink Sand', 20: 'Navy Blue',
+    21: 'Sea Blue', 22: 'Cocoa', 23: 'Pebble', 24: 'Azure', 25: 'Camellia',
+    26: 'Mist Blue', 27: 'Begonia Old', 28: 'Gold', 29: 'Coral', 30: 'Ultraviolet',
+    31: 'Green', 32: 'Flash', 33: 'Wine Red', 34: 'Dark Olive', 35: 'Blue Cobalt',
+    36: 'Rose Red', 37: 'Lemonade', 38: 'Denim Blue', 39: 'Raspberry', 40: 'Shiny Blue',
+    41: 'Lilac', 42: 'Peach', 43: 'Sky Blue', 44: 'Seafoam', 45: 'Grape',
+    46: 'Lavender Gray', 47: 'Shiny Pink', 48: 'Army Green', 49: 'Dark Green',
+    50: 'Spearmint', 51: 'Mellow Yellow', 52: 'Marsala', 53: 'Cornflower',
+    54: 'Dragon Fruit', 55: 'Canary Yellow', 56: 'Papaya', 57: 'Pine Green',
+    58: 'Alaskan Blue', 59: 'Grapefruit', 60: 'Shiny Green', 61: 'Cactus',
+    62: 'Blueberry', 63: 'Deep Navy', 64: 'Cyprus Green', 65: 'Pink Citrus',
+    66: 'Kumquat', 67: 'Plum', 68: 'Pistachio', 69: 'Cantaloupe', 70: 'Abyss Blue',
+    71: 'Elderberry', 72: 'Plasma Ash', 73: 'Cyan', 74: 'Blue Fog', 75: 'Chalk Pink',
+    76: 'Light Lilac', 77: 'New Purple', 80: 'Chocolate',
+}
+
 # ---------- словарь английских цветов (фраза -> каноническое написание) ----------
 BASE_COLORS = ['Black', 'White', 'Red', 'Blue', 'Green', 'Brown', 'Grey', 'Pink', 'Gold',
     'Silver', 'Purple', 'Orange', 'Yellow', 'Beige', 'Violet', 'Mint', 'Lavender', 'Lilac',
@@ -597,6 +620,56 @@ def h_iphone_case(code, short, full):
         return dict(brand='Apple', model='', color=color)
     return dict(brand='Apple', model=iphone_model(m.group(1)), color=color)
 
+# линейки iPhone-чехлов с нумерованной палитрой (служебные слова убираются из модели)
+IPHONE_PALETTE_LINE_WORDS = (
+    r'\b(Silicone\s+FullCam\s+Case|Silicone\s+Full\s+Case|Silicone\s+12SS\s+Case|'
+    r'FullCam\s+Case|Silicone\s+Case|Full\s+Case|FullCam|Nolo|Case)\b')
+
+
+def h_iphone_palette(code, short, full):
+    """iPhone-чехлы с нумерованной палитрой цветов (IPHONE_PALETTE).
+
+    Цвет берётся ТОЛЬКО по номеру из палитры — словари английских/украинских
+    цветов здесь не применяются. Номер стоит в конце наименования: «... Case 08»,
+    «... Case #1», иногда с суффиксом-уточнением («57 blue», «64 Nolo»).
+    Номера вне палитры остаются как «#N» + предупреждение.
+    """
+    s = norm_spaces(fix_latin(short))
+    # номер цвета в конце: опционально «#», далее число, далее необязательный
+    # буквенный суффикс («blue», «Nolo»)
+    m = re.search(r'(?:#\s*)?(\d{1,3})\s*([A-Za-z]+)?\s*$', s)
+    color = ''
+    suffix = ''
+    if m:
+        num = int(m.group(1))
+        suffix = (m.group(2) or '').strip()
+        color = IPHONE_PALETTE.get(num)
+        if not color:
+            flags.append((code, short,
+                          f'iPhone-палітра: немає кольору №{num} — залишено номер'))
+            color = '#' + str(num)
+        elif suffix and suffix.lower() != 'nolo':
+            # Уточнение вида «57 blue» — это ОТДЕЛЬНЫЙ товар от простого «57»
+            # (в 11 группах есть оба). По решению владельца пишем как в прайсе,
+            # дословно «57 blue» — потом проверят вручную.
+            # «Nolo» суффиксом не считается: это название линейки, не цвет.
+            color = f'{num} {suffix}'
+            flags.append((code, short,
+                          f'iPhone-палітра: №{num} з уточненням — колір «{color}» '
+                          f'(перевірити вручну)'))
+        rest = s[:m.start()].strip(' .,-')
+    else:
+        flags.append((code, short, 'iPhone-палітра: не знайдено номер кольору'))
+        rest = s
+    # убрать служебные слова линейки, оставив только модель
+    rest = re.sub(IPHONE_PALETTE_LINE_WORDS, ' ', rest, flags=re.I)
+    rest = norm_spaces(rest)
+    if not rest:
+        flags.append((code, short, 'iPhone-палітра: модель не витягнута'))
+        return dict(brand='Apple', model='', color=color)
+    return dict(brand='Apple', model=iphone_model(rest), color=color)
+
+
 def h_pocket(code, short, full):
     s = re.sub(r'^Transparent Pocket\s*', '', fix_latin(short)).strip()
     rest, color = extract_trailing_color(s)
@@ -852,6 +925,25 @@ def _lookup(d, raw):
     return d.get(norm_spaces(str(raw)))
 
 
+# ---- группы, где цвет берётся ТОЛЬКО по номеру из IPHONE_PALETTE ----
+# Основной источник — метка "palette": "iphone" в group_config.json.
+IPHONE_PALETTE_GROUPS = {
+    norm_spaces(raw) for raw, gid in _SOURCE_MAP_T2.items()
+    if isinstance(gid, int) and _GROUPS_BY_ID.get(gid, {}).get('palette') == 'iphone'
+}
+
+# Запасное правило: подгруппа этой категории, которой ещё нет в конфиге
+# (владелец: «если появятся новые товары — цвет всё равно из этого списка»).
+_IPHONE_PALETTE_NAME_RE = re.compile(
+    r'^Nolo\s+IPhone\b|Silicone\s+Full\s+Case|Silicone\s+FullCam\s+Case|'
+    r'Silicone\s+12SS\s+Case|^iPhone\s.*\bFullCam\s+Case$', re.I)
+
+
+def is_iphone_palette_group(raw):
+    n = norm_spaces(str(raw))
+    return n in IPHONE_PALETTE_GROUPS or bool(_IPHONE_PALETTE_NAME_RE.search(n))
+
+
 def is_t2_group(raw):
     return (raw in _SOURCE_MAP_T2) or (norm_spaces(str(raw)) in _SOURCE_MAP_T2_NORM)
 
@@ -873,10 +965,21 @@ def resolve_group_columns(raw):
 
 def parse(raw, code, short, full):
     """Разобрать один товар второй партии. Возвращает поля товара или None (не t2-группа)."""
-    if not is_t2_group(raw):
+    if not (is_t2_group(raw) or is_iphone_palette_group(raw)):
         return None
     short = norm_spaces(str(short))
     full = norm_spaces(str(full)) if full else short
+    # iPhone-чехлы с нумерованной палитрой — отдельная ветка (приоритет над HANDLERS)
+    if is_iphone_palette_group(raw):
+        parsed = h_iphone_palette(code, short, full) or {}
+        name, gid, parent = resolve_group_columns(raw)
+        return dict(
+            brand=parsed.get('brand', 'Apple'),
+            model=norm_spaces(parsed.get('model', '') or ''),
+            color=parsed.get('color', ''),
+            material=parsed.get('material', _lookup(MATERIAL_NORM, raw) or 'Силикон'),
+            group=name or norm_spaces(str(raw)), gid=gid, parent=parent,
+        )
     handler = _lookup(HANDLERS_NORM, raw)
     if handler is None:
         # известная по конфигу группа без обработчика — generic (iPhone-подход) + флаг

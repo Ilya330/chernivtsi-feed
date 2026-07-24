@@ -1,6 +1,6 @@
 {
  "_comment": "Постоянные ID групп сайта. НЕ перегенерировать. Новые группы получают ID = max+1.",
- "next_free_id": 150187,
+ "next_free_id": 150284,
  "groups": [
   {
    "id": 150001,
@@ -1285,6 +1285,777 @@
    "parent_id": 150185,
    "source_raw": "HardShell for Mac",
    "level": 1
+  },
+  {
+   "id": 150187,
+   "name": "IPhone Full NOLO",
+   "parent_id": null,
+   "source_raw": "IPhone Full NOLO",
+   "level": 0
+  },
+  {
+   "id": 150188,
+   "name": "Nolo IPhone 11",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 11",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150189,
+   "name": "Nolo IPhone 12 Promax",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 12 Promax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150190,
+   "name": "Nolo IPhone 12/12Pro",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 12/12Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150191,
+   "name": "Nolo IPhone 13",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 13",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150192,
+   "name": "Nolo IPhone 13Pro",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 13Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150193,
+   "name": "Nolo IPhone 13ProMax",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 13ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150194,
+   "name": "Nolo IPhone 14",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 14",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150195,
+   "name": "Nolo IPhone 14 Pro",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 14 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150196,
+   "name": "Nolo IPhone 14 ProMax",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 14 ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150197,
+   "name": "Nolo IPhone 15",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 15",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150198,
+   "name": "Nolo IPhone 15 Pro",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 15 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150199,
+   "name": "Nolo IPhone 15 ProMax",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 15 ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150200,
+   "name": "Nolo IPhone 15Plus",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 15Plus",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150201,
+   "name": "Nolo IPhone 16 Pro",
+   "parent_id": 150187,
+   "source_raw": "Nolo IPhone 16 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150202,
+   "name": "IPhone FullCam Nolo",
+   "parent_id": null,
+   "source_raw": "IPhone FullCam Nolo",
+   "level": 0
+  },
+  {
+   "id": 150203,
+   "name": "Nolo IPhone FullCam 12",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 12",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150204,
+   "name": "Nolo IPhone FullCam 12 Pro",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 12 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150205,
+   "name": "Nolo IPhone FullCam 12 ProMax",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 12 ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150206,
+   "name": "Nolo IPhone FullCam 13",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 13",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150207,
+   "name": "Nolo IPhone FullCam 13 Pro",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 13 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150208,
+   "name": "Nolo IPhone FullCam 13 ProMax",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 13 ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150209,
+   "name": "Nolo IPhone FullCam 14",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 14",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150210,
+   "name": "Nolo IPhone FullCam 14 Pro",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 14 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150211,
+   "name": "Nolo IPhone FullCam 14 ProMax",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 14 ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150212,
+   "name": "Nolo IPhone FullCam 15",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 15",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150213,
+   "name": "Nolo IPhone FullCam 15 Pro",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 15 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150214,
+   "name": "Nolo IPhone FullCam 15 ProMax",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 15 ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150215,
+   "name": "Nolo IPhone FullCam 16",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 16",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150216,
+   "name": "Nolo IPhone FullCam 16 Pro",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 16 Pro",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150217,
+   "name": "Nolo IPhone FullCam 16 ProMax",
+   "parent_id": 150202,
+   "source_raw": "Nolo IPhone FullCam 16 ProMax",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150218,
+   "name": "iPhone Silicone 12SS Case",
+   "parent_id": null,
+   "source_raw": "iPhone Silicone 12SS Case",
+   "level": 0
+  },
+  {
+   "id": 150219,
+   "name": "iPhone 11 Pro Max Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone 11 Pro Max Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150220,
+   "name": "iPhone 11 Pro Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone 11 Pro Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150221,
+   "name": "iPhone 11 Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone 11 Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150222,
+   "name": "iPhone 7/8 Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone 7/8 Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150223,
+   "name": "iPhone 7+/8+ Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone 7+/8+ Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150224,
+   "name": "iPhone X/Xs Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone X/Xs Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150225,
+   "name": "iPhone XR Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone XR Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150226,
+   "name": "iPhone XsMax Silicone 12SS Case",
+   "parent_id": 150218,
+   "source_raw": "iPhone XsMax Silicone 12SS Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150227,
+   "name": "iPhone Silicone Full Case",
+   "parent_id": null,
+   "source_raw": "iPhone Silicone Full Case",
+   "level": 0
+  },
+  {
+   "id": 150228,
+   "name": "iPhone 11 Pro Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 11 Pro Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150229,
+   "name": "iPhone 11 ProMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 11 ProMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150230,
+   "name": "iPhone 11 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 11 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150231,
+   "name": "iPhone 12 Mini Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 12 Mini Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150232,
+   "name": "iPhone 12 ProMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 12 ProMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150233,
+   "name": "iPhone 12 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 12 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150234,
+   "name": "iPhone 13 Mini Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 13 Mini Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150235,
+   "name": "iPhone 13 Pro Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 13 Pro Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150236,
+   "name": "iPhone 13 ProMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 13 ProMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150237,
+   "name": "iPhone 13 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 13 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150238,
+   "name": "iPhone 14 Plus Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 14 Plus Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150239,
+   "name": "iPhone 14 Pro Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 14 Pro Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150240,
+   "name": "iPhone 14 ProMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 14 ProMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150241,
+   "name": "iPhone 14 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 14 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150242,
+   "name": "iPhone 15 Plus Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 15 Plus Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150243,
+   "name": "iPhone 15 Pro Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 15 Pro Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150244,
+   "name": "iPhone 15 ProMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 15 ProMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150245,
+   "name": "iPhone 15 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 15 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150246,
+   "name": "iPhone 16 Plus Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 16 Plus Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150247,
+   "name": "iPhone 16 Pro Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 16 Pro Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150248,
+   "name": "iPhone 16 ProMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 16 ProMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150249,
+   "name": "iPhone 16 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 16 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150250,
+   "name": "iPhone 16e Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 16e Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150251,
+   "name": "iPhone 17 Air Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 17 Air Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150252,
+   "name": "iPhone 17 Pro Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 17 Pro Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150253,
+   "name": "iPhone 17 ProMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 17 ProMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150254,
+   "name": "iPhone 17 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 17 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150255,
+   "name": "iPhone 6 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 6 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150256,
+   "name": "iPhone 7/8 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 7/8 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150257,
+   "name": "iPhone 7/8Plus Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone 7/8Plus Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150258,
+   "name": "iPhone SE 2020 Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone SE 2020 Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150259,
+   "name": "iPhone X Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone X Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150260,
+   "name": "iPhone XR Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone XR Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150261,
+   "name": "iPhone XsMax Silicone Full Case",
+   "parent_id": 150227,
+   "source_raw": "iPhone XsMax Silicone Full Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150262,
+   "name": "iPhone Silicone FullCam Case",
+   "parent_id": null,
+   "source_raw": "iPhone Silicone FullCam Case",
+   "level": 0
+  },
+  {
+   "id": 150263,
+   "name": "iPhone 11 FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 11 FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150264,
+   "name": "iPhone 11Pro FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 11Pro FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150265,
+   "name": "iPhone 11ProMax FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 11ProMax FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150266,
+   "name": "iPhone 12 FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 12 FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150267,
+   "name": "iPhone 12Pro FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 12Pro FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150268,
+   "name": "iPhone 12ProMax FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 12ProMax FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150269,
+   "name": "iPhone 13 FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 13 FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150270,
+   "name": "iPhone 13Pro FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 13Pro FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150271,
+   "name": "iPhone 13ProMax FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 13ProMax FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150272,
+   "name": "iPhone 14 FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 14 FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150273,
+   "name": "iPhone 14Pro FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 14Pro FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150274,
+   "name": "iPhone 14ProMax FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 14ProMax FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150275,
+   "name": "iPhone 15 FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 15 FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150276,
+   "name": "iPhone 15 Pro FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 15 Pro FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150277,
+   "name": "iPhone 15ProMax FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 15ProMax FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150278,
+   "name": "iPhone 16 FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 16 FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150279,
+   "name": "iPhone 16 Pro FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 16 Pro FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150280,
+   "name": "iPhone 16ProMax FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 16ProMax FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150281,
+   "name": "iPhone 17 FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 17 FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150282,
+   "name": "iPhone 17 Pro FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 17 Pro FullCam Case",
+   "level": 1,
+   "palette": "iphone"
+  },
+  {
+   "id": 150283,
+   "name": "iPhone 17ProMax FullCam Case",
+   "parent_id": 150262,
+   "source_raw": "iPhone 17ProMax FullCam Case",
+   "level": 1,
+   "palette": "iphone"
   }
  ],
  "source_map_t1": {
@@ -1482,7 +2253,104 @@
   "Magsafe Ring": 150183,
   "Присоски": 150184,
   "Чохли на Macbook": 150185,
-  "HardShell for Mac": 150186
+  "HardShell for Mac": 150186,
+  "IPhone Full NOLO": 150187,
+  "Nolo IPhone 11": 150188,
+  "Nolo IPhone 12 Promax": 150189,
+  "Nolo IPhone 12/12Pro": 150190,
+  "Nolo IPhone 13": 150191,
+  "Nolo IPhone 13Pro": 150192,
+  "Nolo IPhone 13ProMax": 150193,
+  "Nolo IPhone 14": 150194,
+  "Nolo IPhone 14 Pro": 150195,
+  "Nolo IPhone 14 ProMax": 150196,
+  "Nolo IPhone 15": 150197,
+  "Nolo IPhone 15 Pro": 150198,
+  "Nolo IPhone 15 ProMax": 150199,
+  "Nolo IPhone 15Plus": 150200,
+  "Nolo IPhone 16 Pro": 150201,
+  "IPhone FullCam Nolo": 150202,
+  "Nolo IPhone FullCam 12": 150203,
+  "Nolo IPhone FullCam 12 Pro": 150204,
+  "Nolo IPhone FullCam 12 ProMax": 150205,
+  "Nolo IPhone FullCam 13": 150206,
+  "Nolo IPhone FullCam 13 Pro": 150207,
+  "Nolo IPhone FullCam 13 ProMax": 150208,
+  "Nolo IPhone FullCam 14": 150209,
+  "Nolo IPhone FullCam 14 Pro": 150210,
+  "Nolo IPhone FullCam 14 ProMax": 150211,
+  "Nolo IPhone FullCam 15": 150212,
+  "Nolo IPhone FullCam 15 Pro": 150213,
+  "Nolo IPhone FullCam 15 ProMax": 150214,
+  "Nolo IPhone FullCam 16": 150215,
+  "Nolo IPhone FullCam 16 Pro": 150216,
+  "Nolo IPhone FullCam 16 ProMax": 150217,
+  "iPhone Silicone 12SS Case": 150218,
+  "iPhone 11 Pro Max Silicone 12SS Case": 150219,
+  "iPhone 11 Pro Silicone 12SS Case": 150220,
+  "iPhone 11 Silicone 12SS Case": 150221,
+  "iPhone 7/8 Silicone 12SS Case": 150222,
+  "iPhone 7+/8+ Silicone 12SS Case": 150223,
+  "iPhone X/Xs Silicone 12SS Case": 150224,
+  "iPhone XR Silicone 12SS Case": 150225,
+  "iPhone XsMax Silicone 12SS Case": 150226,
+  "iPhone Silicone Full Case": 150227,
+  "iPhone 11 Pro Silicone Full Case": 150228,
+  "iPhone 11 ProMax Silicone Full Case": 150229,
+  "iPhone 11 Silicone Full Case": 150230,
+  "iPhone 12 Mini Silicone Full Case": 150231,
+  "iPhone 12 ProMax Silicone Full Case": 150232,
+  "iPhone 12 Silicone Full Case": 150233,
+  "iPhone 13 Mini Silicone Full Case": 150234,
+  "iPhone 13 Pro Silicone Full Case": 150235,
+  "iPhone 13 ProMax Silicone Full Case": 150236,
+  "iPhone 13 Silicone Full Case": 150237,
+  "iPhone 14 Plus Silicone Full Case": 150238,
+  "iPhone 14 Pro Silicone Full Case": 150239,
+  "iPhone 14 ProMax Silicone Full Case": 150240,
+  "iPhone 14 Silicone Full Case": 150241,
+  "iPhone 15 Plus Silicone Full Case": 150242,
+  "iPhone 15 Pro Silicone Full Case": 150243,
+  "iPhone 15 ProMax Silicone Full Case": 150244,
+  "iPhone 15 Silicone Full Case": 150245,
+  "iPhone 16 Plus Silicone Full Case": 150246,
+  "iPhone 16 Pro Silicone Full Case": 150247,
+  "iPhone 16 ProMax Silicone Full Case": 150248,
+  "iPhone 16 Silicone Full Case": 150249,
+  "iPhone 16e Silicone Full Case": 150250,
+  "iPhone 17 Air Silicone Full Case": 150251,
+  "iPhone 17 Pro Silicone Full Case": 150252,
+  "iPhone 17 ProMax Silicone Full Case": 150253,
+  "iPhone 17 Silicone Full Case": 150254,
+  "iPhone 6 Silicone Full Case": 150255,
+  "iPhone 7/8 Silicone Full Case": 150256,
+  "iPhone 7/8Plus Silicone Full Case": 150257,
+  "iPhone SE 2020 Silicone Full Case": 150258,
+  "iPhone X Silicone Full Case": 150259,
+  "iPhone XR Silicone Full Case": 150260,
+  "iPhone XsMax Silicone Full Case": 150261,
+  "iPhone Silicone FullCam Case": 150262,
+  "iPhone 11 FullCam Case": 150263,
+  "iPhone 11Pro FullCam Case": 150264,
+  "iPhone 11ProMax FullCam Case": 150265,
+  "iPhone 12 FullCam Case": 150266,
+  "iPhone 12Pro FullCam Case": 150267,
+  "iPhone 12ProMax FullCam Case": 150268,
+  "iPhone 13 FullCam Case": 150269,
+  "iPhone 13Pro FullCam Case": 150270,
+  "iPhone 13ProMax FullCam Case": 150271,
+  "iPhone 14 FullCam Case": 150272,
+  "iPhone 14Pro FullCam Case": 150273,
+  "iPhone 14ProMax FullCam Case": 150274,
+  "iPhone 15 FullCam Case": 150275,
+  "iPhone 15 Pro FullCam Case": 150276,
+  "iPhone 15ProMax FullCam Case": 150277,
+  "iPhone 16 FullCam Case": 150278,
+  "iPhone 16 Pro FullCam Case": 150279,
+  "iPhone 16ProMax FullCam Case": 150280,
+  "iPhone 17 FullCam Case": 150281,
+  "iPhone 17 Pro FullCam Case": 150282,
+  "iPhone 17ProMax FullCam Case": 150283
  },
  "t1_silicone_note": "Группы 'Cиліконові чохли на ...' делятся на NoLo (150007) и NeLo (150008) по первому слову Наименования (NoLo SC / NeLo SC)."
 }

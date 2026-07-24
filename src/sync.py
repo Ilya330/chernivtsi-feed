@@ -72,10 +72,12 @@ def dispatch(record):
             p['unknown_group'] = False
             return p
 
-    if parser_t2.is_t2_group(raw):
+    if parser_t2.is_t2_group(raw) or parser_t2.is_iphone_palette_group(raw):
         p = parser_t2.parse(raw, record['code'], record['short'], record['full'])
         if p:
-            p['unknown_group'] = False
+            # группа из категории iPhone-палитры, которой ещё нет в конфиге,
+            # получит новый ID в sync (ветка «в») и попадёт в лог
+            p['unknown_group'] = not parser_t2.is_t2_group(raw)
             return p
 
     # неизвестная группа -> generic-обработчик (iPhone-подход)
